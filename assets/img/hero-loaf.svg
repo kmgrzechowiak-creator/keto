@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-label="Bochenek chleba z nacięciami i dwie kromki na drewnianej desce">
+  <defs>
+    <linearGradient id="crust" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D89A52"/>
+      <stop offset=".55" stop-color="#B26E2E"/>
+      <stop offset="1" stop-color="#8A4B22"/>
+    </linearGradient>
+    <linearGradient id="board" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C99862"/>
+      <stop offset="1" stop-color="#A67444"/>
+    </linearGradient>
+    <linearGradient id="boardEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9A6A3B"/>
+      <stop offset="1" stop-color="#7C532B"/>
+    </linearGradient>
+    <radialGradient id="crumb" cx=".5" cy=".4" r=".7">
+      <stop offset="0" stop-color="#FFF6E0"/>
+      <stop offset="1" stop-color="#F0D9A8"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+    <path id="slice" d="M14 104C9 92 11 74 16 62 -4 54 -2 16 32 8 48 4 62 4 76 8 110 16 110 54 90 62 95 74 97 92 92 104Z"/>
+  </defs>
+
+  <!-- tło -->
+  <path d="M96 96C150 22 300 6 420 40c120 34 196 118 176 226-20 108-140 190-290 194C168 464 52 400 34 288 24 226 52 152 96 96Z" fill="#F7E6BA"/>
+  <circle cx="548" cy="96" r="30" fill="#E9B949" opacity=".55"/>
+  <circle cx="86" cy="420" r="18" fill="#3F6B4B" opacity=".18"/>
+
+  <!-- cień i deska -->
+  <ellipse cx="322" cy="418" rx="270" ry="30" fill="#2B1D14" opacity=".22" filter="url(#soft)"/>
+  <rect x="58" y="368" width="528" height="46" rx="23" fill="url(#boardEdge)"/>
+  <ellipse cx="322" cy="372" rx="264" ry="40" fill="url(#board)"/>
+  <g stroke="#B58553" stroke-width="2" fill="none" opacity=".7" stroke-linecap="round">
+    <path d="M110 370C190 358 260 382 340 370S480 360 540 372"/>
+    <path d="M150 386C230 376 300 396 380 386"/>
+  </g>
+  <circle cx="548" cy="388" r="9" fill="#7C532B"/>
+
+  <!-- bochenek -->
+  <path d="M100 356C88 262 168 196 268 196 368 196 448 262 436 356 435 372 424 380 410 380H126C112 380 101 372 100 356Z" fill="url(#crust)"/>
+  <path d="M132 250C160 218 214 202 270 204 230 214 176 238 150 292Z" fill="#F0C98D" opacity=".38"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M176 246C196 262 208 292 214 330" stroke="#8A4B22" stroke-width="16"/>
+    <path d="M176 246C196 262 208 292 214 330" stroke="#EDC486" stroke-width="10"/>
+    <path d="M244 224C266 242 276 276 278 322" stroke="#8A4B22" stroke-width="16"/>
+    <path d="M244 224C266 242 276 276 278 322" stroke="#EDC486" stroke-width="10"/>
+    <path d="M312 232C332 250 340 282 340 324" stroke="#8A4B22" stroke-width="16"/>
+    <path d="M312 232C332 250 340 282 340 324" stroke="#EDC486" stroke-width="10"/>
+  </g>
+  <g fill="#F6DDA8" opacity=".9">
+    <ellipse cx="150" cy="318" rx="3.4" ry="2"/><ellipse cx="380" cy="296" rx="3.4" ry="2"/><ellipse cx="392" cy="330" rx="3" ry="1.8"/>
+    <ellipse cx="238" cy="352" rx="3" ry="1.8"/><ellipse cx="318" cy="356" rx="3.4" ry="2"/><ellipse cx="180" cy="356" rx="3" ry="1.8"/>
+  </g>
+
+  <!-- kromki -->
+  <g transform="translate(420 246) rotate(6)">
+    <use href="#slice" fill="#9C5A25"/>
+    <use href="#slice" fill="url(#crumb)" transform="translate(9 9) scale(.84)"/>
+    <g fill="#E3C687">
+      <ellipse cx="42" cy="44" rx="4" ry="2.6"/><ellipse cx="70" cy="36" rx="3" ry="2"/><ellipse cx="58" cy="66" rx="4.4" ry="2.8"/>
+      <ellipse cx="34" cy="74" rx="3" ry="2"/><ellipse cx="78" cy="70" rx="3.2" ry="2.2"/><ellipse cx="54" cy="90" rx="3" ry="2"/>
+    </g>
+  </g>
+  <g transform="translate(368 268) rotate(-9)">
+    <use href="#slice" fill="#9C5A25"/>
+    <use href="#slice" fill="url(#crumb)" transform="translate(9 9) scale(.84)"/>
+    <g fill="#E3C687">
+      <ellipse cx="46" cy="40" rx="4" ry="2.6"/><ellipse cx="72" cy="46" rx="3.2" ry="2.2"/><ellipse cx="40" cy="66" rx="3.4" ry="2.2"/>
+      <ellipse cx="64" cy="72" rx="4.4" ry="2.8"/><ellipse cx="50" cy="92" rx="3" ry="2"/>
+    </g>
+  </g>
+
+  <!-- kłosy -->
+  <g stroke="#B98A2E" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M60 372C56 320 58 262 74 206"/>
+    <path d="M84 376C86 330 98 284 122 246"/>
+  </g>
+  <g fill="#E0AE45">
+    <ellipse cx="74" cy="194" rx="5.5" ry="11"/>
+    <ellipse cx="65" cy="208" rx="5" ry="10" transform="rotate(-24 65 208)"/><ellipse cx="83" cy="208" rx="5" ry="10" transform="rotate(24 83 208)"/>
+    <ellipse cx="63" cy="226" rx="5" ry="10" transform="rotate(-24 63 226)"/><ellipse cx="81" cy="226" rx="5" ry="10" transform="rotate(24 81 226)"/>
+    <ellipse cx="122" cy="234" rx="5.5" ry="11" transform="rotate(20 122 234)"/>
+    <ellipse cx="111" cy="248" rx="5" ry="10" transform="rotate(-4 111 248)"/><ellipse cx="130" cy="252" rx="5" ry="10" transform="rotate(44 130 252)"/>
+    <ellipse cx="106" cy="268" rx="5" ry="10" transform="rotate(-4 106 268)"/><ellipse cx="124" cy="272" rx="5" ry="10" transform="rotate(44 124 272)"/>
+  </g>
+</svg>
