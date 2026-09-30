@@ -1,4 +1,4 @@
-/* KetoBoomers.pl — Rodzinna Piekarnia Keto
+/* KetoBoomers.pl - Rodzinna Piekarnia Keto
    Bez zewnętrznych czcionek i zasobów: szybko i zgodnie z RODO. */
 
 :root {
@@ -637,4 +637,108 @@ input:focus-visible, textarea:focus-visible { outline-offset: 1px; border-color:
 @media print {
   .site-header, .site-footer, .cookie, .skip-link { display: none; }
   body { background: #fff; }
+}
+
+/* ---------- Ruch i efekty ---------- */
+:root { --ease: cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+/* Wjazd sekcji przy przewijaniu (klasę .reveal dodaje JS; bez JS wszystko jest widoczne) */
+.js .reveal { opacity: 0; }
+.js .reveal.is-visible { opacity: 1; animation: rise 0.75s var(--ease) var(--d, 0s) backwards; }
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } }
+
+/* Cień nagłówka po przewinięciu */
+.site-header { transition: box-shadow 0.25s; }
+.site-header.is-scrolled { box-shadow: 0 6px 24px rgba(43, 29, 20, 0.1); }
+
+/* Delikatne unoszenie bochenka w hero */
+@keyframes float-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+/* Wyraźny stan aktywnego pola formularza */
+input[type="email"]:focus-visible, input[type="text"]:focus-visible, textarea:focus-visible {
+  box-shadow: 0 0 0 4px rgba(63, 107, 75, 0.22);
+}
+
+/* Stretched link: cała karta jest klikalna, gdy ma link „card-link" */
+.card { position: relative; }
+.card-link::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+.card-link { transition: letter-spacing 0.25s var(--ease); }
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .hero-art > img { animation: float-soft 7s ease-in-out infinite; }
+
+  /* przyciski */
+  .btn { transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), background 0.2s, color 0.2s, border-color 0.2s; }
+  .btn:hover { transform: translateY(-2px) scale(1.04); }
+  .btn--primary:hover { box-shadow: 0 14px 28px rgba(138, 75, 34, 0.38); }
+  .btn--light:hover { box-shadow: 0 14px 28px rgba(233, 185, 73, 0.35); }
+  .btn:active { transform: scale(0.98); }
+
+  /* nawigacja i logo */
+  .site-nav ul a { transition: background 0.2s, transform 0.2s var(--ease); }
+  .site-nav ul a:hover { transform: translateY(-1px); }
+  .brand img { transition: transform 0.4s var(--ease); }
+  .brand:hover img { transform: rotate(-10deg) scale(1.08); }
+
+  /* karty */
+  .card { transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+  .card:not(.card--flat):hover, .card:not(.card--flat):focus-within {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 2px 4px rgba(43, 29, 20, 0.06), 0 24px 46px rgba(43, 29, 20, 0.17);
+  }
+  .card-media { overflow: hidden; }
+  .card-media img { transition: transform 0.6s var(--ease); }
+  .card:not(.card--flat):hover .card-media img { transform: scale(1.09); }
+  .card:hover .card-link { letter-spacing: 0.03em; }
+
+  /* zdjęcia i ilustracje w ramkach */
+  .frame img { transition: transform 0.9s var(--ease); }
+  .frame:hover img { transform: scale(1.05); }
+
+  /* okładki ebooków: lekki obrót jak książka w ręku */
+  .cover { transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease); }
+  .cover-stage .cover:hover {
+    transform: perspective(900px) rotateY(-9deg) rotateX(2deg) scale(1.05);
+    box-shadow: -6px 0 0 rgba(0, 0, 0, 0.14) inset, 0 28px 48px rgba(43, 29, 20, 0.34);
+  }
+  .hero-art .cover--float { transition: transform 0.4s var(--ease); }
+  .hero-art:hover .cover--float { transform: rotate(-2deg) scale(1.09) translateY(-4px); }
+
+  /* pasek zalet */
+  .trust-item .icon { transition: transform 0.35s var(--ease), background 0.25s, color 0.25s; }
+  .trust-item:hover .icon { transform: scale(1.14) rotate(-7deg); background: var(--sage); color: #fff; }
+
+  /* kroki i lista zasad */
+  .steps li::before { transition: transform 0.3s var(--ease); }
+  .steps li:hover::before { transform: scale(1.15) rotate(-6deg); }
+  .anatomy li::before { transition: transform 0.3s var(--ease); }
+  .anatomy li:hover::before { transform: scale(1.12); }
+
+  /* chipsy, cytaty, pudełka */
+  .chip { transition: transform 0.2s var(--ease), border-color 0.2s, background 0.2s; }
+  .chip:hover { transform: translateY(-2px); border-color: var(--crust); }
+  .quote, .callout, .guarantee, .signup-card { transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+  .quote:hover, .guarantee:hover { transform: translateY(-4px); }
+  .signup-card:hover { box-shadow: 0 2px 4px rgba(43, 29, 20, 0.06), 0 22px 44px rgba(43, 29, 20, 0.14); }
+  .offer-box { transition: transform 0.4s var(--ease); }
+  .offer-box:hover { transform: translateY(-4px) scale(1.01); }
+
+  /* FAQ */
+  .faq details { transition: border-color 0.2s, box-shadow 0.3s var(--ease), transform 0.25s var(--ease); }
+  .faq details:hover { border-color: var(--crust); transform: translateX(4px); }
+  .faq summary::after { transition: transform 0.3s var(--ease); }
+  .faq details:hover summary::after { transform: translateY(-50%) scale(1.25); }
+
+  /* stopka */
+  .footer-grid a { transition: color 0.2s, padding-left 0.25s var(--ease); }
+  .footer-grid a:hover { padding-left: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; }
+  .js .reveal.is-visible { animation: none; }
+}
+
+@media print {
+  .js .reveal { opacity: 1 !important; animation: none !important; }
 }

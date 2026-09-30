@@ -1,5 +1,5 @@
 /*
-  KetoBoomers.pl — ustawienia strony.
+  KetoBoomers.pl - ustawienia strony.
   Wszystko, co trzeba podłączyć przed publikacją, jest w tym jednym pliku.
   Puste pole = funkcja wyłączona (strona działa w trybie podglądu).
 */
@@ -8,11 +8,11 @@ window.KETO_CONFIG = {
   email: "kontakt@ketoboomers.pl",
 
   // Zapis na newsletter (MailerLite lub inne narzędzie).
-  //  endpoint   — adres z formularza osadzanego (Formularze → Osadź → „Działanie formularza"/URL).
+  //  endpoint   - adres z formularza osadzanego (Formularze → Osadź → „Działanie formularza"/URL).
   //               Puste = tryb podglądu: formularz przekierowuje na stronę „dziękujemy",
   //               ALE adres e-mail nie jest nigdzie zapisywany.
-  //  emailField — nazwa pola e-mail wymagana przez narzędzie (MailerLite: "fields[email]").
-  //  thankYouUrl — strona po zapisie z ofertą ebooka.
+  //  emailField - nazwa pola e-mail wymagana przez narzędzie (MailerLite: "fields[email]").
+  //  thankYouUrl - strona po zapisie z ofertą ebooka.
   signup: {
     endpoint: "",
     emailField: "",
@@ -32,10 +32,10 @@ window.KETO_CONFIG = {
   },
 
   // Oferta powitalna na stronie „dziękujemy".
-  //  hours        — czas trwania odliczania liczony od pierwszego wejścia odwiedzającego.
-  //  price        — cena powitalna.
-  //  regularPrice — cena po upływie oferty (null = nie pokazuj ceny przekreślonej).
-  // WAŻNE: limit czasowy musi być prawdziwy — po upływie czasu cena w koszyku faktycznie
+  //  hours        - czas trwania odliczania liczony od pierwszego wejścia odwiedzającego.
+  //  price        - cena powitalna.
+  //  regularPrice - cena po upływie oferty (null = nie pokazuj ceny przekreślonej).
+  // WAŻNE: limit czasowy musi być prawdziwy - po upływie czasu cena w koszyku faktycznie
   // musi wzrosnąć. Udawane odliczanie to nieuczciwa praktyka rynkowa (UOKiK).
   offer: {
     hours: 24,

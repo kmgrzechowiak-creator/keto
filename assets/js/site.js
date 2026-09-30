@@ -1,4 +1,4 @@
-/* KetoBoomers.pl — drobne funkcje strony. Bez zależności. */
+/* KetoBoomers.pl - drobne funkcje strony. Bez zależności. */
 (() => {
   "use strict";
 
@@ -29,6 +29,33 @@
       }
     });
     $$("a", nav).forEach((a) => a.addEventListener("click", () => setOpen(false)));
+  }
+
+  /* ---------- Cień nagłówka po przewinięciu ---------- */
+  const header = $(".site-header");
+  if (header) {
+    const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  /* ---------- Delikatne wjazdy sekcji przy przewijaniu ---------- */
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const all = $$(".hero-grid > *, .section-head, .split > *, .grid > *, .trust-item, .steps li, .faq details, .signup-card, .guarantee, .offer-box, .callout, .quote, .empty-state");
+    const targets = all.filter((el) => !all.some((other) => other !== el && other.contains(el))); // tylko zewnętrzne
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        io.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px", threshold: 0.05 });
+    targets.forEach((el) => {
+      const index = Array.prototype.indexOf.call(el.parentElement.children, el);
+      el.style.setProperty("--d", Math.min(index, 5) * 0.08 + "s");
+      el.classList.add("reveal");
+      io.observe(el);
+    });
   }
 
   /* ---------- Dane z config.js ---------- */
@@ -86,14 +113,14 @@
         return;
       }
       if (!consent.checked) {
-        show("Zaznacz zgodę na e-maile — bez niej nie możemy wysłać Ci przepisów.");
+        show("Zaznacz zgodę na e-maile – bez niej nie możemy wysłać Ci przepisów.");
         consent.focus();
         return;
       }
 
       const signup = C.signup || {};
       if (!signup.endpoint) {
-        console.warn("[KetoBoomers] Tryb podglądu: brak signup.endpoint w assets/js/config.js — adres e-mail NIE został zapisany.");
+        console.warn("[KetoBoomers] Tryb podglądu: brak signup.endpoint w assets/js/config.js – adres e-mail NIE został zapisany.");
         goToThankYou();
         return;
       }
@@ -139,14 +166,14 @@
         try {
           await fetch(endpoint, { method: "POST", mode: "no-cors", body: new FormData(form) });
           form.reset();
-          show("Dziękujemy! Wiadomość wysłana — odpowiemy tak szybko, jak to możliwe.", true);
+          show("Dziękujemy! Wiadomość wysłana – odpowiemy tak szybko, jak to możliwe.", true);
         } catch (err) {
           show("Nie udało się wysłać wiadomości. Napisz do nas bezpośrednio na adres e-mail obok.");
         }
         return;
       }
       const subject = encodeURIComponent("Wiadomość ze strony ketoboomers.pl");
-      const body = encodeURIComponent(message.value.trim() + "\n\n— " + name.value.trim() + " (" + email.value.trim() + ")");
+      const body = encodeURIComponent(message.value.trim() + "\n\n– " + name.value.trim() + " (" + email.value.trim() + ")");
       window.location.href = "mailto:" + (C.email || "") + "?subject=" + subject + "&body=" + body;
       show("Otwieramy Twój program pocztowy. Jeśli nic się nie stało, napisz na adres e-mail obok.", true);
     });
@@ -210,7 +237,7 @@
       box.setAttribute("aria-labelledby", "cookie-title");
       box.innerHTML =
         '<h2 id="cookie-title" class="mt-0" style="font-size:1.15rem">Ciasteczka? Tylko za Twoją zgodą</h2>' +
-        "<p>Chcemy sprawdzać, które przepisy czytacie najchętniej — do tego używamy anonimowej analityki Google Analytics. " +
+        "<p>Chcemy sprawdzać, które przepisy czytacie najchętniej – do tego używamy anonimowej analityki Google Analytics. " +
         'Bez Twojej zgody jej nie włączamy. <a href="' + root + 'polityka-prywatnosci.html#cookies">Szczegóły</a></p>' +
         '<div class="cookie-actions">' +
         '<button type="button" class="btn btn--primary btn--sm" data-consent="granted">Zgadzam się</button>' +
