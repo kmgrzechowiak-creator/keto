@@ -58,6 +58,17 @@
     });
   }
 
+  /* ---------- Filtr kategorii na liście wpisów ---------- */
+  $$(".chips[data-filterable]").forEach((list) => {
+    const cards = $$(".post-card");
+    list.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-filter]");
+      if (!btn) return;
+      $$("[data-filter]", list).forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      cards.forEach((card) => { card.hidden = !!btn.dataset.filter && card.dataset.cat !== btn.dataset.filter; });
+    });
+  });
+
   /* ---------- Dane z config.js ---------- */
   if (C.email) {
     $$("[data-email]").forEach((el) => {

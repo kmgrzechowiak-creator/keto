@@ -1,0 +1,52 @@
+<!--meta
+title: Blog keto: przepisy i poradniki o wypiekach | KetoBoomers.pl
+description: Poradniki o diecie keto, przewodniki po mąkach i przepisy na chleb, bułki i ciasta bez cukru. Proste wyjaśnienia dla początkujących, także po 40-tce.
+nav: blog
+-->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Blog</span>
+    <h1>Blog o keto i wypiekach bez cukru</h1>
+    <p class="lead">Proste poradniki o diecie keto, przewodniki po mąkach i przepisy na chleb, bułki oraz ciasta – bez tabelek, które przytłaczają, i bez straszenia. Dla początkujących i dla tych, którzy po czterdziestce chcą wrócić do domowego pieczenia po swojemu.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem">
+  <div class="container">
+    <div class="chips-wrap">
+      <ul class="chips" data-filterable aria-label="Filtruj wpisy według kategorii">
+        {{categories}}
+      </ul>
+    </div>
+    <div class="grid grid--3">
+      {{posts}}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Wkrótce</span>
+      <h2>Przepisy i kolejne poradniki w przygotowaniu</h2>
+      <p class="lead">Jeden przepis – jeden wpis, ze zdjęciami krok po kroku. W pierwszej kolejności pieczywo, potem ciasta, serniki i wypieki na święta.</p>
+    </div>
+    <div class="grid grid--4">
+      <div class="trust-item">{{icon:clock}}<div><h3>Czas i trudność</h3><p>Ile to zajmie i czy dasz radę – od razu, na górze wpisu.</p></div></div>
+      <div class="trust-item">{{icon:scale}}<div><h3>Makra na porcję</h3><p>Węglowodany, białko, tłuszcz i kalorie.</p></div></div>
+      <div class="trust-item">{{icon:check}}<div><h3>Zdjęcia krok po kroku</h3><p>Zobaczysz, jak ma wyglądać ciasto na każdym etapie.</p></div></div>
+      <div class="trust-item">{{icon:shield}}<div><h3>Zamienniki</h3><p>Podpowiedzi, czym zastąpić brakujący składnik.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container--narrow center">
+    <span class="eyebrow">Newsletter</span>
+    <h2>Nowe wpisy i przepisy prosto na skrzynkę</h2>
+    <p class="lead" style="margin-inline:auto">Zapisz się, a wyślemy Ci darmowy zestaw 5 przepisów na chleb i bułki oraz powiadomimy o kolejnych artykułach.</p>
+    <div class="signup-card" style="text-align:left;max-width:34rem;margin:2rem auto 0">
+      {{signup:blog|Wyślij mi darmowe przepisy}}
+    </div>
+  </div>
+</section>

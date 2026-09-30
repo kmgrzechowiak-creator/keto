@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Darmowe przepisy keto na chleb, bułki i ciasta | KetoBoomers.pl</title>
-<meta name="description" content="Blog z darmowymi przepisami keto: chleb, bułki, serniki, wypieki świąteczne. Każdy przepis ze zdjęciami krok po kroku, makrami, czasem i poziomem trudności.">
+<title>Blog keto: przepisy i poradniki o wypiekach | KetoBoomers.pl</title>
+<meta name="description" content="Poradniki o diecie keto, przewodniki po mąkach i przepisy na chleb, bułki i ciasta bez cukru. Proste wyjaśnienia dla początkujących, także po 40-tce.">
 <meta name="theme-color" content="#fbf6ec">
 <link rel="canonical" href="https://ketoboomers.pl/blog.html">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:site_name" content="KetoBoomers.pl">
-<meta property="og:title" content="Darmowe przepisy keto na chleb, bułki i ciasta | KetoBoomers.pl">
-<meta property="og:description" content="Blog z darmowymi przepisami keto: chleb, bułki, serniki, wypieki świąteczne. Każdy przepis ze zdjęciami krok po kroku, makrami, czasem i poziomem trudności.">
+<meta property="og:title" content="Blog keto: przepisy i poradniki o wypiekach | KetoBoomers.pl">
+<meta property="og:description" content="Poradniki o diecie keto, przewodniki po mąkach i przepisy na chleb, bułki i ciasta bez cukru. Proste wyjaśnienia dla początkujących, także po 40-tce.">
 <meta property="og:url" content="https://ketoboomers.pl/blog.html">
 <meta property="og:image" content="https://ketoboomers.pl/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -30,7 +30,7 @@
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-bars" aria-hidden="true"></span>Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Główna nawigacja">
       <ul>
-        <li><a href="blog.html" aria-current="page">Przepisy</a></li><li><a href="sklep.html">Sklep</a></li><li><a href="nasza-historia.html">Nasza historia</a></li><li><a href="faq.html">FAQ</a></li><li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="blog.html" aria-current="page">Blog</a></li><li><a href="sklep.html">Sklep</a></li><li><a href="nasza-historia.html">Nasza historia</a></li><li><a href="faq.html">FAQ</a></li><li><a href="kontakt.html">Kontakt</a></li>
       </ul>
       <a class="btn btn--primary btn--sm" href="index.html#darmowe-przepisy">Darmowe przepisy</a>
     </nav>
@@ -39,28 +39,49 @@
 <main id="main">
 <section class="page-hero">
   <div class="container">
-    <span class="eyebrow">Przepisy</span>
-    <h1>Darmowe przepisy z&nbsp;rodzinnej piekarni</h1>
-    <p class="lead">Jeden przepis – jeden wpis. Zdjęcia krok po kroku, makra, czas przygotowania i&nbsp;poziom trudności. Pierwsze wpisy są w&nbsp;przygotowaniu.</p>
+    <span class="eyebrow">Blog</span>
+    <h1>Blog o&nbsp;keto i&nbsp;wypiekach bez cukru</h1>
+    <p class="lead">Proste poradniki o&nbsp;diecie keto, przewodniki po mąkach i&nbsp;przepisy na chleb, bułki oraz ciasta – bez tabelek, które przytłaczają, i&nbsp;bez straszenia. Dla początkujących i&nbsp;dla tych, którzy po czterdziestce chcą wrócić do domowego pieczenia po swojemu.</p>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="container">
-    <ul class="chips" aria-label="Kategorie przepisów">
-      <li><a class="chip" href="#wkrotce" aria-current="true">Wszystkie</a></li>
-      <li><a class="chip" href="#wkrotce">Pieczywo i&nbsp;bułki</a></li>
-      <li><a class="chip" href="#wkrotce">Ciasta i&nbsp;serniki</a></li>
-      <li><a class="chip" href="#wkrotce">Święta</a></li>
-      <li><a class="chip" href="#wkrotce">Słodycze bez cukru</a></li>
-      <li><a class="chip" href="#wkrotce">Śniadania</a></li>
-    </ul>
-
-    <div class="empty-state" id="wkrotce">
-      <img src="assets/img/kitchen.svg" alt="" width="640" height="480" loading="lazy">
-      <h2 style="font-size:1.6rem">Pierwsze przepisy już w&nbsp;piecu</h2>
-      <p class="muted" style="max-width:34rem;margin-inline:auto">Przepisy pojawią się tu wkrótce – najpierw pieczywo, potem ciasta i&nbsp;serniki. Zapisz się na newsletter, a&nbsp;dostaniesz je prosto na skrzynkę, zanim ktokolwiek inny je zobaczy.</p>
-      <a class="btn btn--primary" href="index.html#darmowe-przepisy">Zapisz mnie na newsletter</a>
+    <div class="chips-wrap">
+      <ul class="chips" data-filterable aria-label="Filtruj wpisy według kategorii">
+        <li><button type="button" class="chip" data-filter="" aria-pressed="true">Wszystkie</button></li>
+<li><button type="button" class="chip" data-filter="Poradniki" aria-pressed="false">Poradniki</button></li>
+<li><button type="button" class="chip" data-filter="Składniki" aria-pressed="false">Składniki</button></li>
+      </ul>
+    </div>
+    <div class="grid grid--3">
+      <article class="card post-card" data-cat="Poradniki">
+          <div class="card-media card-media--photo"><img src="assets/img/scene/loaf-800.jpg" alt="" width="800" height="600" loading="lazy"></div>
+          <div class="card-body">
+            <span class="badge">Poradniki</span>
+            <h3><a class="card-title-link" href="blog/dlaczego-keto-chleb-wychodzi-gumowy.html">Dlaczego keto chleb wychodzi gumowy? 6 najczęstszych błędów i&nbsp;jak ich uniknąć</a></h3>
+            <p>Keto chleb wyszedł gumowy w&nbsp;środku? To zwykle kilka powtarzalnych błędów, a&nbsp;nie brak talentu. Sprawdź 6 najczęstszych i&nbsp;jak je naprawić.</p>
+            <p class="post-meta-line"><span><time datetime="2026-09-30">30 września 2026</time></span> · <span>7 min czytania</span></p>
+          </div>
+        </article>
+<article class="card post-card" data-cat="Poradniki">
+          <div class="card-media card-media--photo"><img src="assets/img/scene/kitchen-800.jpg" alt="" width="800" height="600" loading="lazy"></div>
+          <div class="card-body">
+            <span class="badge">Poradniki</span>
+            <h3><a class="card-title-link" href="blog/keto-dla-poczatkujacych-7-prostych-zasad.html">Keto wcale nie jest trudne: 7 prostych zasad na start</a></h3>
+            <p>Keto brzmi groźnie: liczenie, egzotyczne składniki, dużo zasad. W&nbsp;praktyce wystarczy zacząć od jednej zmiany. Oto 7 prostych zasad na start.</p>
+            <p class="post-meta-line"><span><time datetime="2026-09-30">30 września 2026</time></span> · <span>8 min czytania</span></p>
+          </div>
+        </article>
+<article class="card post-card" data-cat="Składniki">
+          <div class="card-media card-media--photo"><img src="assets/img/scene/flours-800.jpg" alt="" width="800" height="600" loading="lazy"></div>
+          <div class="card-body">
+            <span class="badge">Składniki</span>
+            <h3><a class="card-title-link" href="blog/maki-keto-migdalowa-kokosowa-lubinowa-babka-plesznik.html">Mąki keto: migdałowa, kokosowa, łubinowa i&nbsp;babka płesznik. Czym się różnią?</a></h3>
+            <p>Półka z&nbsp;mąkami keto potrafi przytłoczyć. Wyjaśniamy prosto, czym różni się mąka migdałowa, kokosowa, łubinowa i&nbsp;babka płesznik i&nbsp;jak je łączyć.</p>
+            <p class="post-meta-line"><span><time datetime="2026-09-30">30 września 2026</time></span> · <span>9 min czytania</span></p>
+          </div>
+        </article>
     </div>
   </div>
 </section>
@@ -68,13 +89,38 @@
 <section class="section section--alt">
   <div class="container">
     <div class="section-head">
-      <h2>Co znajdziesz w&nbsp;każdym przepisie</h2>
+      <span class="eyebrow">Wkrótce</span>
+      <h2>Przepisy i&nbsp;kolejne poradniki w&nbsp;przygotowaniu</h2>
+      <p class="lead">Jeden przepis – jeden wpis, ze zdjęciami krok po kroku. W&nbsp;pierwszej kolejności pieczywo, potem ciasta, serniki i&nbsp;wypieki na święta.</p>
     </div>
     <div class="grid grid--4">
       <div class="trust-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.6 2.2"/></svg><div><h3>Czas i&nbsp;trudność</h3><p>Ile to zajmie i&nbsp;czy dasz radę – od razu, na górze wpisu.</p></div></div>
       <div class="trust-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5v17M7 20.5h10M5 7.5h14"/><path d="M5 7.5l-3 7.2a3.3 3.3 0 0 0 6 0L5 7.5zM19 7.5l-3 7.2a3.3 3.3 0 0 0 6 0l-3-7.2z"/></svg><div><h3>Makra na porcję</h3><p>Węglowodany, białko, tłuszcz i&nbsp;kalorie.</p></div></div>
       <div class="trust-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.4l3 3 6-6.4"/></svg><div><h3>Zdjęcia krok po kroku</h3><p>Zobaczysz, jak ma wyglądać ciasto na każdym etapie.</p></div></div>
       <div class="trust-item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.8l7.5 2.8v5.6c0 4.6-3.2 8.4-7.5 10-4.3-1.6-7.5-5.4-7.5-10V5.6L12 2.8z"/><path d="M8.6 12l2.6 2.6 4.4-4.8"/></svg><div><h3>Zamienniki</h3><p>Podpowiedzi, czym zastąpić brakujący składnik.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container--narrow center">
+    <span class="eyebrow">Newsletter</span>
+    <h2>Nowe wpisy i&nbsp;przepisy prosto na skrzynkę</h2>
+    <p class="lead" style="margin-inline:auto">Zapisz się, a&nbsp;wyślemy Ci darmowy zestaw 5 przepisów na chleb i&nbsp;bułki oraz powiadomimy o&nbsp;kolejnych artykułach.</p>
+    <div class="signup-card" style="text-align:left;max-width:34rem;margin:2rem auto 0">
+      <form class="signup" data-signup novalidate>
+        <div class="field">
+          <label for="email-blog">Twój adres e-mail</label>
+          <input id="email-blog" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="np. imie@poczta.pl">
+        </div>
+        <div class="hp" aria-hidden="true"><label>Nie wypełniaj tego pola <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn btn--primary btn--lg btn--block" type="submit">Wyślij mi darmowe przepisy</button>
+        <label class="consent" for="consent-blog">
+          <input id="consent-blog" name="consent" type="checkbox" required>
+          <span>Zgadzam się na otrzymywanie e-maili od KetoBoomers.pl z&nbsp;przepisami i&nbsp;informacjami o&nbsp;produktach. Mogę wypisać się w&nbsp;każdej chwili. <a href="polityka-prywatnosci.html">Polityka prywatności</a></span>
+        </label>
+        <p class="form-msg" role="alert" hidden></p>
+      </form>
     </div>
   </div>
 </section>
@@ -89,7 +135,7 @@
       <div>
         <h2>Na stronie</h2>
         <ul>
-          <li><a href="blog.html">Przepisy</a></li>
+          <li><a href="blog.html">Blog keto</a></li>
           <li><a href="sklep.html">Sklep</a></li>
           <li><a href="pieczywo-keto.html">Ebook: Keto pieczywo</a></li>
           <li><a href="nasza-historia.html">Nasza historia</a></li>

@@ -1,0 +1,85 @@
+<!--meta
+title: [Nazwa przepisu] – przepis keto | KetoBoomers.pl
+description: [Jedno zdanie: co to za wypiek, dla kogo i dlaczego wychodzi. Do 155 znaków.]
+file: blog/szablon-przepisu.html
+root: ../
+nav: blog
+robots: noindex
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "[Nazwa przepisu]",
+  "description": "[Krótki opis]",
+  "image": ["https://ketoboomers.pl/assets/img/[zdjecie].jpg"],
+  "author": { "@type": "Organization", "name": "KetoBoomers.pl" },
+  "prepTime": "PT20M",
+  "cookTime": "PT40M",
+  "totalTime": "PT60M",
+  "recipeYield": "10 kromek",
+  "recipeCategory": "Pieczywo",
+  "recipeCuisine": "polska",
+  "keywords": "keto chleb, chleb bez cukru, przepis keto",
+  "nutrition": { "@type": "NutritionInformation", "servingSize": "1 kromka", "calories": "[kcal]", "carbohydrateContent": "[g]", "proteinContent": "[g]", "fatContent": "[g]" },
+  "recipeIngredient": ["[składnik 1]", "[składnik 2]"],
+  "recipeInstructions": [{ "@type": "HowToStep", "text": "[krok 1]" }, { "@type": "HowToStep", "text": "[krok 2]" }]
+}
+</script>
+<!-- SZABLON WPISU Z PRZEPISEM
+     1. Skopiuj plik pod nową nazwą, np. blog/chleb-keto-na-kanapki.html.
+     2. Zmień <title>, meta description, <link rel="canonical"> i og:url w <head> na adres nowego wpisu.
+     3. Usuń <meta name="robots" content="noindex"> z <head> gotowego wpisu.
+     4. Uzupełnij blok JSON-LD powyżej (Recipe) - dzięki niemu przepis może pojawić się w Google z gwiazdkami i czasem.
+     5. Wszystkie liczby (makra, czas) wpisuj tylko po realnym przepieczeniu i policzeniu. Nie zgaduj - czytają to osoby liczące węglowodany.
+     6. Dodaj wpis do listy na stronie blog.html. -->
+<article class="section" style="padding-top:2rem">
+  <div class="container--narrow">
+    <p class="small"><a href="../blog.html">← Wszystkie przepisy</a></p>
+    <span class="eyebrow">Pieczywo</span>
+    <h1>[Nazwa przepisu]</h1>
+    <p class="lead">[Jedno–dwa zdania: dla kogo jest ten przepis i jaki problem rozwiązuje, np. „Chleb na kanapki, który się nie kruszy i nie jest gumowy.”]</p>
+
+    <div class="photo-slot">Zdjęcie gotowego wypieku (światło dzienne, jedna deska) – wstaw &lt;img&gt; z opisem alt.</div>
+
+    <ul class="post-meta" aria-label="Informacje o przepisie">
+      <li><b>Przygotowanie</b>[20 min]</li>
+      <li><b>Pieczenie</b>[40 min]</li>
+      <li><b>Trudność</b>[łatwy]</li>
+      <li><b>Porcje</b>[10 kromek]</li>
+    </ul>
+
+    <h2>Makra na porcję</h2>
+    <table class="macro-table">
+      <thead><tr><th scope="col">Węglowodany</th><th scope="col">Białko</th><th scope="col">Tłuszcz</th><th scope="col">Kalorie</th></tr></thead>
+      <tbody><tr><td>[… g]</td><td>[… g]</td><td>[… g]</td><td>[… kcal]</td></tr></tbody>
+    </table>
+
+    <h2>Składniki</h2>
+    <ul>
+      <li>[składnik 1 – z zamiennikiem, jeśli jest]</li>
+      <li>[składnik 2]</li>
+    </ul>
+
+    <h2>Przygotowanie</h2>
+    <ol class="recipe-steps">
+      <li><p>[Krok 1 – opisz temperaturę, czas i znak, po którym widać, że etap jest gotowy.]</p><div class="photo-slot">Zdjęcie do kroku 1</div></li>
+      <li><p>[Krok 2]</p><div class="photo-slot">Zdjęcie do kroku 2</div></li>
+    </ol>
+
+    <div class="callout callout--sage">
+      <p><strong>Jeśli coś pójdzie nie tak:</strong> [np. środek gumowy → piecz dłużej w niższej temperaturze; bochenek opadł → sprawdź ilość spulchniacza].</p>
+    </div>
+
+    <p class="small muted">Przepis nie zastępuje porady lekarza ani dietetyka.</p>
+  </div>
+</article>
+
+<section class="section section--dark">
+  <div class="container--narrow center">
+    <h2>Chcesz więcej sprawdzonych przepisów?</h2>
+    <div class="signup-card" style="text-align:left;max-width:34rem;margin:2rem auto 0">
+      {{signup:post|Wyślij mi darmowe przepisy}}
+    </div>
+  </div>
+</section>
