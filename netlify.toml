@@ -1,0 +1,38 @@
+# Netlify: strona jest statyczna, gotowe pliki HTML leżą w katalogu głównym repozytorium.
+# Nie ma polecenia budowania. Po zmianach w _src uruchom lokalnie `python3 _src/build.py`
+# i zacommituj wygenerowane pliki (patrz README.md).
+
+[build]
+  publish = "."
+
+# Pliki robocze nie powinny być publiczne (robots.txt tylko prosi roboty o pominięcie _src).
+[[redirects]]
+  from = "/_src/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/SEO.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Czcionki się nie zmieniają, więc przeglądarka może je trzymać rok.
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
