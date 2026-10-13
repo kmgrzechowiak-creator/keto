@@ -1,9 +1,10 @@
 # KetoBoomers.pl – Rodzinna Piekarnia Keto
 
 Statyczna strona (HTML + CSS + trochę JS), zbudowana na podstawie konspektu biznesowego
-(`KetoBoomers_Konspekt_Biznesowy.docx` / `.xlsx`, sesja 1). Bez frameworków, bez zewnętrznych czcionek
-i skryptów – szybka i zgodna z RODO. Gotowe pliki HTML leżą w katalogu głównym, więc hostingu nie trzeba
-niczym budować. Strategia pozycjonowania: **[SEO.md](SEO.md)**.
+(`KetoBoomers_Konspekt_Biznesowy.docx` / `.xlsx`, sesja 1). Bez frameworków i zewnętrznych skryptów;
+czcionki leżą w `assets/fonts` (nic nie ładuje się z serwerów Google), więc strona jest szybka i zgodna z RODO.
+Gotowe pliki HTML leżą w katalogu głównym, więc hostingu nie trzeba niczym budować.
+Strategia pozycjonowania: **[SEO.md](SEO.md)**.
 
 **Główna zasada z konspektu:** strona główna ma zebrać adres e-mail (lead magnet), a nie sprzedawać.
 Sprzedaż dzieje się później – w mailu i na landingu ebooka.
@@ -123,6 +124,22 @@ Strona celowo **nie zawiera wymyślonych faktów** – prawdziwych zdjęć, opin
 - [ ] **Adres `kontakt@ketoboomers.pl`** – to założenie; upewnij się, że skrzynka istnieje.
 - [ ] Po podpięciu domeny sprawdź `sitemap.xml` i `robots.txt` (adres `https://ketoboomers.pl`).
 
+## Wygląd
+
+Motyw „rodzinna piekarnia": papier, taśma, pieczątki, kratka vichy i markiza. Wszystko jest w jednym pliku
+`assets/css/style.css`; kolory i czcionki to zmienne na samej górze (`:root`).
+
+| Element | Wartość |
+|---|---|
+| Akcent (przyciski, markiza, pinezki) | `--accent` (pomidor `#c7402b`), zmieniasz w jednym miejscu |
+| Pasy sekcji | `--blue` (emalia) i `--accent`; tło strony `--ground`, papier `--paper`, kraft `--kraft` |
+| Czcionki | Coustard 900 (nagłówki), Literata (tekst), Caveat (odręczne dopiski), licencja OFL |
+
+Reakcje na najechanie (unoszenie, obroty, podświetlenia) są na końcu pliku, w bloku „Ruch i efekty".
+Dodając zdjęcie z podpisem, użyj `<figure class="print"><div class="frame"><img …></div><figcaption>…</figcaption></figure>`.
+Czcionki są w formacie WOFF2 (podzbiory „latin" i „latin-ext", czyli z polskimi znakami); nie podmieniaj ich na kroje bez
+polskich liter (np. Caprasimo ich nie ma).
+
 ## Reklamy Meta: bezpieczna narracja
 
 Konspekt ostrzega, że Meta ocenia też stronę docelową. Teksty na stronie mówią o smaku i rodzinie, nie
@@ -133,3 +150,15 @@ o odchudzaniu: bez „przed i po", wag, obietnic wagowych i pytań typu „masz 
 Dowolny hosting plików statycznych (Cloudflare Pages, Netlify, GitHub Pages, zwykły hosting z FTP):
 katalog główny repozytorium wystarczy opublikować bez komendy budowania.
 Strona używa ścieżek względnych; `404.html` ścieżek absolutnych, więc domena powinna wskazywać na katalog główny.
+
+### Netlify
+
+W repozytorium jest `netlify.toml` (katalog publikacji `.`, bez polecenia budowania, zablokowany dostęp do `_src`,
+`README.md` i `SEO.md`, nagłówki bezpieczeństwa, cache czcionek). Wystarczy:
+
+1. Netlify → *Add new site* → *Import an existing project* → wybierz to repozytorium z GitHuba.
+2. W *Branch to deploy* wskaż gałąź, którą chcesz publikować. Pola *Build command* zostaw puste.
+3. Kliknij *Deploy*. Domenę (`ketoboomers.pl`) dodasz w *Domain management*.
+
+Każdy kolejny push do tej gałęzi wdroży się sam. Zmieniając treść w `_src`, najpierw uruchom `python3 _src/build.py`
+i zacommituj wynik; Netlify nie buduje strony, tylko ją publikuje.

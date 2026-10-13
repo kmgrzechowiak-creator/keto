@@ -286,6 +286,7 @@ def header(root, nav_key):
         cur = ' aria-current="page"' if key == nav_key else ""
         items.append(f'<li><a href="{root}{href}"{cur}>{label}</a></li>')
     return f"""<a class="skip-link" href="#main">Przejdź do treści</a>
+<div class="awning" aria-hidden="true"></div>
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="{root}index.html" aria-label="KetoBoomers – Rodzinna Piekarnia Keto, strona główna">
@@ -377,9 +378,11 @@ def render_document(meta, main_html, root, out_rel, extra_ld=None, og_type="webs
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc, quote=True)}">
-<meta name="theme-color" content="#fbf6ec">
+<meta name="theme-color" content="#faf0d8">
 {robots}<link rel="canonical" href="{canonical}">
 <link rel="icon" href="{root}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="{root}assets/fonts/literata-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{root}assets/fonts/coustard-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:type" content="{og_type}">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:site_name" content="KetoBoomers.pl">

@@ -1,0 +1,6 @@
+Czcionki używane na stronie KetoBoomers.pl, hostowane lokalnie (bez połączeń z Google):
+
+- Coustard (nagłówki, waga 900), Caveat (odręczne dopiski), Literata (tekst)
+- Źródło: Google Fonts (https://fonts.google.com), podzbiory "latin" i "latin-ext" w formacie WOFF2
+- Licencja: SIL Open Font License 1.1 (https://openfontlicense.org), pozwala na użycie komercyjne
+  i hostowanie na własnym serwerze.
