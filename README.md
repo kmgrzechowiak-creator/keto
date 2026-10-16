@@ -1,8 +1,8 @@
 # KetoBoomers.pl – Rodzinna Piekarnia Keto
 
 Statyczna strona (HTML + CSS + trochę JS), zbudowana na podstawie konspektu biznesowego
-(`KetoBoomers_Konspekt_Biznesowy.docx` / `.xlsx`, sesja 1). Bez frameworków, bez zewnętrznych czcionek
-i skryptów – szybka i zgodna z RODO. Gotowe pliki HTML leżą w katalogu głównym, więc hostingu nie trzeba
+(`KetoBoomers_Konspekt_Biznesowy.docx` / `.xlsx`, sesja 1). Bez frameworków, bez zewnętrznych skryptów
+i bez zewnętrznych czcionek (krój pisma leży w `assets/fonts/`) – szybka i zgodna z RODO. Gotowe pliki HTML leżą w katalogu głównym, więc hostingu nie trzeba
 niczym budować. Strategia pozycjonowania: **[SEO.md](SEO.md)**.
 
 **Główna zasada z konspektu:** strona główna ma zebrać adres e-mail (lead magnet), a nie sprzedawać.
@@ -29,10 +29,32 @@ python3 _src/build.py
 | `_src/pages/*.html` | zwykłe podstrony (ta sama nazwa pliku w katalogu głównym) |
 | `_src/posts/*.html` | wpisy blogowe (`blog/<nazwa>.html`), lista na `blog.html`, sitemap |
 | `_src/build.py` | generator: wspólny nagłówek, stopka, meta SEO, dane strukturalne, sitemap, robots |
-| `assets/` | style (`css`), skrypty (`js`), obrazy (`img`) |
+| `assets/` | style (`css`), skrypty (`js`), czcionki (`fonts`), obrazy (`img`) |
+| `_src/render/` | opcjonalny renderer wizualizacji 3D, z którego powstały obrazy (zob. `_src/render/README.md`) |
 
 Nagłówek i stopka są w `_src/build.py` (funkcje `header` i `footer`). Zmiana menu w jednym miejscu
 obejmie wszystkie strony. Katalog `_src` jest zablokowany w `robots.txt`.
+
+## Wygląd i grafiki
+
+Styl „księgi kucharskiej": ciepły papier, serifowe nagłówki, ornamenty, wpisy z numerowanymi rozdziałami.
+
+- **Czcionki** (`assets/fonts/`, wgrane lokalnie, licencja SIL OFL, patrz `assets/fonts/LICENSE.txt`):
+  Fraunces (nagłówki), Lora (treść wpisów), DM Sans (interfejs). Brak zapytań do Google Fonts.
+- **Biblioteka ebooków** – obrotowa karuzela 3D na stronie głównej i w sklepie (CSS 3D + `assets/js/site.js`).
+  Lista okładek to `PRODUCTS` w `_src/build.py` (tytuł, motyw kolorystyczny, obraz, cena, link). Karuzela reaguje
+  na strzałki, kropki, klawiaturę i przeciąganie, sama obraca się co kilka sekund (zatrzymuje się po pierwszej
+  interakcji i gdy użytkownik ma włączone „ogranicz ruch"). Bez JavaScriptu pokazuje zwykłą siatkę okładek.
+- **Efekty po najechaniu** działają tylko na urządzeniach z myszą i są wyłączane przy „ogranicz ruch".
+- **Zdjęcie na górze strony głównej:** `assets/img/scene/hero-960.jpg` i `hero-1920.jpg`.
+
+## Wygląd i obrazy: ważne
+
+Wszystkie obrazy w `assets/img/scene/` to **wizualizacje 3D** wyrenderowane komputerowo (bochenek, ciasto, bułki,
+pierniki, mąki, stół kuchenny): nie są fotografiami prawdziwych wypieków. Przy każdym alt-ie stoi dopisek
+„(wizualizacja)". Do czasu własnych zdjęć dają spójny, realistyczny podgląd układu. Zdjęć z internetu nie
+pobieraliśmy (środowisko budujące stronę nie miało dostępu do banków zdjęć); jeśli chcesz użyć darmowych
+fotografii (Unsplash, Pexels, Wikimedia Commons), zapisz je pod tymi samymi nazwami (patrz niżej) i sprawdź licencję.
 
 ## Strony
 
@@ -106,7 +128,8 @@ Strona celowo **nie zawiera wymyślonych faktów** – prawdziwych zdjęć, opin
 - [ ] **Zdjęcia wypieków.** Obrazy w `assets/img/scene/` to **wizualizacje** wygenerowane komputerowo,
   a nie fotografie: służą jako zastępniki. Konspekt wskazuje własne zdjęcia jako najważniejszy element strony.
   Podmień pliki, zachowując nazwy (`loaf`, `buns`, `cake`, `holiday`, `flours`, `kitchen`) w dwóch rozmiarach:
-  `*-800.jpg` (karty) i `*-1600.jpg` (duże kadry), oraz `og-*.jpg` (1200×630, udostępnianie) i `og.png`.
+  `*-800.jpg` (karty) i `*-1600.jpg` (duże kadry), zdjęcie otwierające stronę główną `hero-960.jpg` i `hero-1920.jpg`
+  (16:9), oraz `og-*.jpg` (1200×630, udostępnianie) i `og.png`.
   Alt-y zawierają dopisek „(wizualizacja)": usuń go po podmianie na zdjęcia.
 - [ ] **Wpisy blogowe** – przed publikacją niech przejrzy je dietetyk (treści zdrowotne). Zastąp „Zespół
   KetoBoomers" prawdziwym autorem. Szczegóły: [SEO.md](SEO.md).

@@ -13,13 +13,15 @@ nav: blog
 
 <section class="section" style="padding-top:1rem">
   <div class="container">
+    {{featured}}
+    <h2 class="blog-section-title">Wszystkie wpisy</h2>
     <div class="chips-wrap">
       <ul class="chips" data-filterable aria-label="Filtruj wpisy według kategorii">
         {{categories}}
       </ul>
     </div>
     <div class="grid grid--3">
-      {{posts}}
+      {{posts:rest}}
     </div>
   </div>
 </section>

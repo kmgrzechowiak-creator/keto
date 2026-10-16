@@ -16,6 +16,10 @@
 <meta property="og:url" content="https://ketoboomers.pl/">
 <meta property="og:image" content="https://ketoboomers.pl/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/fraunces-latin-opsz-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/fraunces-latin-ext-opsz-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dm-sans-latin-wght-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dm-sans-latin-ext-wght-normal.woff2">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "KetoBoomers.pl", "alternateName": "Rodzinna Piekarnia Keto", "url": "https://ketoboomers.pl/", "logo": "https://ketoboomers.pl/assets/img/og.png", "description": "Rodzinna piekarnia keto – sprawdzone przepisy na chleb, bułki i wypieki bez cukru."}</script>
@@ -39,9 +43,10 @@
   </div>
 </header>
 <main id="main">
-<section class="hero" id="darmowe-przepisy">
-  <div class="container hero-grid">
-    <div>
+<section class="hero hero--photo" id="darmowe-przepisy">
+  <div class="hero-bg"><img src="assets/img/scene/hero-1920.jpg" srcset="assets/img/scene/hero-960.jpg 960w, assets/img/scene/hero-1920.jpg 1920w" sizes="100vw" alt="Złocisty bochenek keto chleba z nacięciami i kromki na drewnianej desce (wizualizacja)" width="1920" height="1080" fetchpriority="high"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
       <span class="eyebrow">Rodzinna piekarnia keto</span>
       <h1>Wypieki keto bez cukru. <em>Bez smaku kompromisu.</em></h1>
       <p class="lead">Chleb, bułki i&nbsp;serniki keto, które wychodzą za pierwszym razem. Sprawdzone przepisy do upieczenia w&nbsp;domu – dla Ciebie i&nbsp;całej rodziny.</p>
@@ -63,16 +68,11 @@
       </form>
       </div>
     </div>
-    <div class="hero-art">
-      <div class="photo-frame"><img src="assets/img/scene/loaf-1600.jpg" srcset="assets/img/scene/loaf-800.jpg 800w, assets/img/scene/loaf-1600.jpg 1600w" sizes="(min-width: 900px) 44vw, 92vw" alt="Złocisty bochenek keto chleba z nacięciami i dwie kromki na drewnianej desce (wizualizacja)" width="1600" height="1200" fetchpriority="high"></div>
-      <div class="cover cover--float cover--sage" aria-hidden="true">
-        <span class="cover-brand">KetoBoomers</span>
-        <p class="cover-title">5 przepisów</p>
-        <p class="cover-sub">na chleb i&nbsp;bułki, które wychodzą</p>
-        <img class="cover-photo" src="assets/img/scene/buns-800.jpg" alt="" width="800" height="600">
-      </div>
-    </div>
   </div>
+  <div class="badge-round" aria-hidden="true">
+      <svg class="ring" viewBox="0 0 100 100"><defs><path id="badge-path" d="M50,50 m-39,0 a39,39 0 1,1 78,0 a39,39 0 1,1 -78,0"/></defs><text><textPath href="#badge-path" textLength="241" lengthAdjust="spacing">Wypieki keto bez cukru · Rodzinna piekarnia · </textPath></text></svg>
+      <img src="assets/img/logo-mark.svg" alt="" width="64" height="64">
+    </div>
 </section>
 
 <section class="trust" aria-label="Dlaczego nam zaufać">
@@ -118,17 +118,18 @@
       <a class="btn btn--ghost" href="#darmowe-przepisy">Chcę darmowe przepisy</a>
     </div>
     <figure>
-      <div class="frame"><img src="assets/img/scene/buns-1600.jpg" srcset="assets/img/scene/buns-800.jpg 800w, assets/img/scene/buns-1600.jpg 1600w" sizes="(min-width: 860px) 46vw, 92vw" alt="Bułki z sezamem na drewnianej desce i przekrojona bułka z masłem (wizualizacja)" width="1600" height="1200" loading="lazy"></div>
+      <div class="frame"><img src="assets/img/scene/buns-1600.jpg" srcset="assets/img/scene/buns-800.jpg 800w, assets/img/scene/buns-1600.jpg 1600w" sizes="(min-width: 860px) 46vw, 92vw" alt="Trzy bułki z sezamem na drewnianej desce i miseczka z masłem (wizualizacja)" width="1600" height="1200" loading="lazy"></div>
     </figure>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head section-head--center">
       <span class="eyebrow">Co pieczemy</span>
       <h2>Wypieki, za którymi naprawdę się tęskni</h2>
-      <p class="lead">Zaczynamy od pieczywa – bo brakuje go najbardziej. Potem przyjdą ciasta, święta i&nbsp;kompendium wiedzy o&nbsp;mąkach.</p>
+      <p class="lead" style="margin-inline:auto">Zaczynamy od pieczywa – bo brakuje go najbardziej. Potem przyjdą ciasta, święta i&nbsp;kompendium wiedzy o&nbsp;mąkach.</p>
+      <div class="ornament" aria-hidden="true" style="margin-top:1.6rem"></div>
     </div>
     <div class="grid grid--4">
       <article class="card">
@@ -180,6 +181,120 @@
   </div>
 </section>
 
+<section class="section section--dark library" id="ebooki">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Biblioteka KetoBoomers</span>
+      <h2>Nasze ebooki <em>w&nbsp;jednym kręgu</em></h2>
+      <p class="lead" style="margin-inline:auto">Przekręć okładki, przeciągnij je myszką lub palcem albo kliknij wybrany ebook. Zaczynamy od pieczywa, kolejne przyjdą w&nbsp;kolejności, w&nbsp;jakiej ich najbardziej potrzebujecie.</p>
+    </div>
+    <div class="carousel" data-carousel style="--n:6">
+      <div class="carousel-stage" aria-roledescription="karuzela" aria-label="Biblioteka ebooków KetoBoomers">
+        <div class="carousel-floor" aria-hidden="true"></div>
+        <ol class="carousel-ring">
+          <li class="book is-active" style="--i:0" data-index="0">
+            <div class="book-face book-face--front bk bk--wheat">
+              <a class="book-link" href="pieczywo-keto.html" aria-label="Keto pieczywo: 12 przepisów na chleb i bułki">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Keto pieczywo</span><span class="bk-sub">12 przepisów na chleb i&nbsp;bułki</span></span>
+                <span class="bk-photo"><img src="assets/img/scene/loaf-800.jpg" alt="" width="800" height="600" loading="lazy"></span>
+                <span class="bk-tag"><span>Ebook</span><span>PDF</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--wheat bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li><li class="book" style="--i:1" data-index="1">
+            <div class="book-face book-face--front bk bk--rose">
+              <a class="book-link" href="sklep.html#powiadom" aria-label="Ciasta i serniki: wypieki, które łączą rodzinę">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Ciasta i&nbsp;serniki</span><span class="bk-sub">wypieki, które łączą rodzinę</span></span>
+                <span class="bk-photo"><img src="assets/img/scene/cake-800.jpg" alt="" width="800" height="600" loading="lazy"></span>
+                <span class="bk-tag"><span>Ebook</span><span>Wkrótce</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--rose bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li><li class="book" style="--i:2" data-index="2">
+            <div class="book-face book-face--front bk bk--pine">
+              <a class="book-link" href="sklep.html#powiadom" aria-label="Święta keto: wypieki bez cukru na świąteczny stół">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Święta keto</span><span class="bk-sub">wypieki bez cukru na świąteczny stół</span></span>
+                <span class="bk-photo"><img src="assets/img/scene/holiday-800.jpg" alt="" width="800" height="600" loading="lazy"></span>
+                <span class="bk-tag"><span>Ebook</span><span>Wkrótce</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--pine bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li><li class="book" style="--i:3" data-index="3">
+            <div class="book-face book-face--front bk bk--sage">
+              <a class="book-link" href="blog/maki-keto-migdalowa-kokosowa-lubinowa-babka-plesznik.html" aria-label="Przewodnik po mąkach: migdałowa, kokosowa, łubinowa">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Przewodnik po mąkach</span><span class="bk-sub">migdałowa, kokosowa, łubinowa</span></span>
+                <span class="bk-photo"><img src="assets/img/scene/flours-800.jpg" alt="" width="800" height="600" loading="lazy"></span>
+                <span class="bk-tag"><span>Poradnik</span><span>Za darmo</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--sage bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li><li class="book" style="--i:4" data-index="4">
+            <div class="book-face book-face--front bk bk--espresso">
+              <a class="book-link" href="sklep.html#powiadom" aria-label="Pakiet ebooków: wszystkie w jednym, taniej">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Pakiet ebooków</span><span class="bk-sub">wszystkie w&nbsp;jednym, taniej</span></span>
+                <span class="bk-stack" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="bk-tag"><span>Pakiet</span><span>Wkrótce</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--espresso bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li><li class="book" style="--i:5" data-index="5">
+            <div class="book-face book-face--front bk bk--wine">
+              <a class="book-link" href="sklep.html#powiadom" aria-label="Wielka księga wypieków: Rodzinna piekarnia keto">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Wielka księga wypieków</span><span class="bk-sub">Rodzinna piekarnia keto</span></span>
+                <span class="bk-photo"><img src="assets/img/scene/kitchen-800.jpg" alt="" width="800" height="600" loading="lazy"></span>
+                <span class="bk-tag"><span>Księga</span><span>Wkrótce</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--wine bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li>
+        </ol>
+      </div>
+      <button type="button" class="carousel-btn carousel-btn--prev" aria-label="Poprzedni ebook">‹</button>
+      <button type="button" class="carousel-btn carousel-btn--next" aria-label="Następny ebook">›</button>
+      <div class="carousel-info" aria-live="polite">
+        <div class="info-item" data-index="0">
+            <span class="badge" data-soon-for="pieczywo">Premiera wkrótce</span><span class="badge" data-live-for="pieczywo" hidden>Dostępny</span>
+            <h3>Keto pieczywo</h3>
+            <p>Chleb i&nbsp;bułki, które wychodzą za pierwszym razem. Makra, czas i&nbsp;wskazówki krok po kroku.</p>
+            <p class="info-price">29 zł</p>
+            <a class="btn btn--light btn--arrow" href="pieczywo-keto.html">Poznaj ebooka</a>
+          </div><div class="info-item" data-index="1" hidden>
+            <span class="badge">Wkrótce</span>
+            <h3>Ciasta i&nbsp;serniki</h3>
+            <p>Od codziennych ciast po sernik na święta, bez cukru i&nbsp;bez kompromisów w&nbsp;smaku.</p>
+            <p class="info-price">planowo 39 zł</p>
+            <a class="btn btn--light btn--arrow" href="sklep.html#powiadom">Powiadom mnie o&nbsp;premierze</a>
+          </div><div class="info-item" data-index="2" hidden>
+            <span class="badge">Wkrótce</span>
+            <h3>Święta keto</h3>
+            <p>Piernik, sernik i&nbsp;makowiec na święta: przy stole nikogo nie zabraknie, także osób pilnujących węglowodanów.</p>
+            <p class="info-price">planowo 39 zł</p>
+            <a class="btn btn--light btn--arrow" href="sklep.html#powiadom">Powiadom mnie o&nbsp;premierze</a>
+          </div><div class="info-item" data-index="3" hidden>
+            <span class="badge">Za darmo</span>
+            <h3>Przewodnik po mąkach</h3>
+            <p>Proporcje, zamienniki i&nbsp;alergeny. Wiedza, której najbardziej brakuje początkującym w&nbsp;pieczeniu keto.</p>
+            <p class="info-price">Czytaj za darmo na blogu</p>
+            <a class="btn btn--light btn--arrow" href="blog/maki-keto-migdalowa-kokosowa-lubinowa-babka-plesznik.html">Przeczytaj na blogu</a>
+          </div><div class="info-item" data-index="4" hidden>
+            <span class="badge">Wkrótce</span>
+            <h3>Pakiet ebooków</h3>
+            <p>Wszystkie ebooki w&nbsp;jednym pakiecie. Przy premierze pokażemy dokładnie, ile oszczędzasz.</p>
+            <p class="info-price">planowo 119 zł</p>
+            <a class="btn btn--light btn--arrow" href="sklep.html#powiadom">Powiadom mnie o&nbsp;premierze</a>
+          </div><div class="info-item" data-index="5" hidden>
+            <span class="badge">Wkrótce</span>
+            <h3>Wielka księga wypieków</h3>
+            <p>Nasz flagowy zbiór: 50–70 przepisów na chleb, ciasta i&nbsp;święta. W&nbsp;przygotowaniu.</p>
+            <p class="info-price">planowo 79 zł</p>
+            <a class="btn btn--light btn--arrow" href="sklep.html#powiadom">Powiadom mnie o&nbsp;premierze</a>
+          </div>
+      </div>
+      <div class="carousel-dots"><button type="button" data-go="0" aria-label="Pokaż: Keto pieczywo" aria-current="true"></button><button type="button" data-go="1" aria-label="Pokaż: Ciasta i serniki"></button><button type="button" data-go="2" aria-label="Pokaż: Święta keto"></button><button type="button" data-go="3" aria-label="Pokaż: Przewodnik po mąkach"></button><button type="button" data-go="4" aria-label="Pokaż: Pakiet ebooków"></button><button type="button" data-go="5" aria-label="Pokaż: Wielka księga wypieków"></button></div>
+    </div>
+  </div>
+</section>
+
 <section class="section section--paper">
   <div class="container split split--reverse">
     <div>
@@ -194,33 +309,8 @@
       <p class="small muted">Nasze przepisy nie zastępują porady lekarza ani dietetyka.</p>
     </div>
     <figure>
-      <div class="frame"><img src="assets/img/scene/kitchen-1600.jpg" srcset="assets/img/scene/kitchen-800.jpg 800w, assets/img/scene/kitchen-1600.jpg 1600w" sizes="(min-width: 860px) 46vw, 92vw" alt="Kuchenny stół z bochenkiem chleba, wałkiem i kubkiem herbaty (wizualizacja)" width="1600" height="1200" loading="lazy"></div>
+      <div class="arch" style="max-width:440px;margin-inline:auto"><img src="assets/img/scene/kitchen-1600.jpg" srcset="assets/img/scene/kitchen-800.jpg 800w, assets/img/scene/kitchen-1600.jpg 1600w" sizes="(min-width: 860px) 440px, 80vw" alt="Zbliżenie na kromki świeżo upieczonego chleba z miękiszem pełnym porów, obok masło (wizualizacja)" width="1600" height="1200" loading="lazy"></div>
     </figure>
-  </div>
-</section>
-
-<section class="section section--dark">
-  <div class="container split">
-    <div class="cover-stage">
-      <div class="cover cover--lg">
-        <span class="cover-brand">KetoBoomers · Ebook</span>
-        <p class="cover-title">Keto pieczywo</p>
-        <p class="cover-sub">12 przepisów na chleb i&nbsp;bułki, które wychodzą za pierwszym razem</p>
-        <img class="cover-photo" src="assets/img/scene/loaf-800.jpg" alt="" width="800" height="600">
-      </div>
-    </div>
-    <div>
-      <span class="eyebrow">Pierwszy ebook</span>
-      <h2>Keto pieczywo: <em>12 przepisów</em> na chleb i&nbsp;bułki</h2>
-      <p class="lead">Mały ebook o&nbsp;jednym konkretnym problemie: jak upiec keto chleb, który nie jest gumowy.</p>
-      <ul class="checklist">
-        <li>12 przetestowanych przepisów na chleb i&nbsp;bułki</li>
-        <li>Makra, czas i&nbsp;poziom trudności przy każdym przepisie</li>
-        <li>Wskazówki, co poprawić, gdy coś nie wyjdzie</li>
-        <li>7 dni gwarancji zwrotu pieniędzy</li>
-      </ul>
-      <a class="btn btn--light btn--lg" href="pieczywo-keto.html">Poznaj ebooka</a>
-    </div>
   </div>
 </section>
 
@@ -235,6 +325,7 @@
       <article class="card post-card" data-cat="Poradniki">
           <div class="card-media card-media--photo"><img src="assets/img/scene/loaf-800.jpg" alt="" width="800" height="600" loading="lazy"></div>
           <div class="card-body">
+            <span class="card-no">N° 03</span>
             <span class="badge">Poradniki</span>
             <h3><a class="card-title-link" href="blog/dlaczego-keto-chleb-wychodzi-gumowy.html">Dlaczego keto chleb wychodzi gumowy? 6 najczęstszych błędów i&nbsp;jak ich uniknąć</a></h3>
             <p>Keto chleb wyszedł gumowy w&nbsp;środku? To zwykle kilka powtarzalnych błędów, a&nbsp;nie brak talentu. Sprawdź 6 najczęstszych i&nbsp;jak je naprawić.</p>
@@ -244,6 +335,7 @@
 <article class="card post-card" data-cat="Poradniki">
           <div class="card-media card-media--photo"><img src="assets/img/scene/kitchen-800.jpg" alt="" width="800" height="600" loading="lazy"></div>
           <div class="card-body">
+            <span class="card-no">N° 02</span>
             <span class="badge">Poradniki</span>
             <h3><a class="card-title-link" href="blog/keto-dla-poczatkujacych-7-prostych-zasad.html">Keto wcale nie jest trudne: 7 prostych zasad na start</a></h3>
             <p>Keto brzmi groźnie: liczenie, egzotyczne składniki, dużo zasad. W&nbsp;praktyce wystarczy zacząć od jednej zmiany. Oto 7 prostych zasad na start.</p>
@@ -253,6 +345,7 @@
 <article class="card post-card" data-cat="Składniki">
           <div class="card-media card-media--photo"><img src="assets/img/scene/flours-800.jpg" alt="" width="800" height="600" loading="lazy"></div>
           <div class="card-body">
+            <span class="card-no">N° 01</span>
             <span class="badge">Składniki</span>
             <h3><a class="card-title-link" href="blog/maki-keto-migdalowa-kokosowa-lubinowa-babka-plesznik.html">Mąki keto: migdałowa, kokosowa, łubinowa i&nbsp;babka płesznik. Czym się różnią?</a></h3>
             <p>Półka z&nbsp;mąkami keto potrafi przytłoczyć. Wyjaśniamy prosto, czym różni się mąka migdałowa, kokosowa, łubinowa i&nbsp;babka płesznik i&nbsp;jak je łączyć.</p>

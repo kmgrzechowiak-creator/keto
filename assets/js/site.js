@@ -69,6 +69,126 @@
     });
   });
 
+  /* ---------- Karuzela ebooków (pierścień 3D) ---------- */
+  $$("[data-carousel]").forEach((root) => {
+    const stage = $(".carousel-stage", root);
+    const ring = $(".carousel-ring", root);
+    const books = $$(".book", root);
+    const infos = $$(".info-item", root);
+    const dots = $$(".carousel-dots button", root);
+    const n = books.length;
+    if (!n || !stage || !(window.CSS && CSS.supports("transform-style", "preserve-3d"))) return;
+
+    const step = 360 / n;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let angle = 0;
+    let active = 0;
+    let timer = null;
+    let stopped = false;
+    let visible = true;
+    let moved = false;
+
+    root.classList.add("is-3d");
+    $$("a, img", ring).forEach((el) => el.setAttribute("draggable", "false"));
+    stage.tabIndex = 0;
+    stage.setAttribute("role", "group");
+
+    const setRadius = () => {
+      const w = ring.offsetWidth || 236;
+      const radius = (w / 2) / Math.tan(Math.PI / n) * 1.5 + w * 0.1;
+      root.style.setProperty("--r", radius.toFixed(1) + "px");
+    };
+    const paint = () => root.style.setProperty("--rot", (-angle).toFixed(2) + "deg");
+    const modN = (v) => ((v % n) + n) % n;
+
+    const show = () => {
+      books.forEach((b, i) => {
+        b.classList.toggle("is-active", i === active);
+        const a = $("a", b);
+        if (a) a.tabIndex = i === active ? 0 : -1;
+      });
+      infos.forEach((el, i) => { el.hidden = i !== active; });
+      dots.forEach((d, i) => d.setAttribute("aria-current", i === active ? "true" : "false"));
+    };
+    const goTo = (i) => {
+      const target = modN(i);
+      let delta = modN(target - active);
+      if (delta > n / 2) delta -= n;
+      angle += delta * step;
+      active = target;
+      paint();
+      show();
+    };
+    const stop = () => { stopped = true; if (timer) { clearInterval(timer); timer = null; } };
+    const play = () => {
+      if (reduce || stopped || timer || !visible) return;
+      timer = setInterval(() => goTo(active + 1), 5200);
+    };
+    const pause = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const interact = () => stop();
+
+    $(".carousel-btn--prev", root).addEventListener("click", () => { interact(); goTo(active - 1); });
+    $(".carousel-btn--next", root).addEventListener("click", () => { interact(); goTo(active + 1); });
+    dots.forEach((d) => d.addEventListener("click", () => { interact(); goTo(Number(d.dataset.go)); }));
+    root.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { e.preventDefault(); interact(); goTo(active - 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); interact(); goTo(active + 1); }
+    });
+
+    // kliknięcie okładki: nieaktywna obraca się do przodu, aktywna otwiera link
+    ring.addEventListener("click", (e) => {
+      const book = e.target.closest(".book");
+      if (!book) return;
+      if (moved) { e.preventDefault(); return; }
+      const i = Number(book.dataset.index);
+      if (i !== active) { e.preventDefault(); interact(); goTo(i); }
+    });
+
+    // przeciąganie myszą i palcem
+    let startX = 0;
+    let startAngle = 0;
+    let dragging = false;
+    stage.addEventListener("pointerdown", (e) => {
+      if (e.button !== undefined && e.button !== 0) return;
+      dragging = true; moved = false; startX = e.clientX; startAngle = angle;
+    });
+    stage.addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 6 && !moved) {
+        moved = true; root.classList.add("is-dragging"); interact();
+        if (stage.setPointerCapture) { try { stage.setPointerCapture(e.pointerId); } catch (err) { /* ignoruj */ } }
+      }
+      if (moved) { angle = startAngle - dx * 0.32; paint(); }
+    });
+    const endDrag = () => {
+      if (!dragging) return;
+      dragging = false;
+      if (moved) {
+        root.classList.remove("is-dragging");
+        const idx = Math.round(angle / step);
+        active = modN(idx);
+        angle = idx * step;
+        paint(); show();
+        setTimeout(() => { moved = false; }, 60);
+      }
+    };
+    stage.addEventListener("pointerup", endDrag);
+    stage.addEventListener("pointercancel", endDrag);
+
+    root.addEventListener("mouseenter", pause);
+    root.addEventListener("mouseleave", play);
+    root.addEventListener("focusin", () => { pause(); });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        visible = entries[0].isIntersecting;
+        if (visible) play(); else pause();
+      }, { threshold: 0.35 }).observe(root);
+    }
+    window.addEventListener("resize", setRadius);
+    setRadius(); show(); paint(); play();
+  });
+
   /* ---------- Dane z config.js ---------- */
   if (C.email) {
     $$("[data-email]").forEach((el) => {

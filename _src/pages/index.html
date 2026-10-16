@@ -4,9 +4,10 @@ description: Sprawdzone przepisy na keto chleb, bułki i serniki bez cukru, któ
 nav:
 jsonld: org
 -->
-<section class="hero" id="darmowe-przepisy">
-  <div class="container hero-grid">
-    <div>
+<section class="hero hero--photo" id="darmowe-przepisy">
+  <div class="hero-bg"><img src="assets/img/scene/hero-1920.jpg" srcset="assets/img/scene/hero-960.jpg 960w, assets/img/scene/hero-1920.jpg 1920w" sizes="100vw" alt="Złocisty bochenek keto chleba z nacięciami i kromki na drewnianej desce (wizualizacja)" width="1920" height="1080" fetchpriority="high"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
       <span class="eyebrow">Rodzinna piekarnia keto</span>
       <h1>Wypieki keto bez cukru. <em>Bez smaku kompromisu.</em></h1>
       <p class="lead">Chleb, bułki i serniki keto, które wychodzą za pierwszym razem. Sprawdzone przepisy do upieczenia w domu – dla Ciebie i całej rodziny.</p>
@@ -16,16 +17,8 @@ jsonld: org
         {{signup:hero|Wyślij mi darmowe przepisy}}
       </div>
     </div>
-    <div class="hero-art">
-      <div class="photo-frame"><img src="assets/img/scene/loaf-1600.jpg" srcset="assets/img/scene/loaf-800.jpg 800w, assets/img/scene/loaf-1600.jpg 1600w" sizes="(min-width: 900px) 44vw, 92vw" alt="Złocisty bochenek keto chleba z nacięciami i dwie kromki na drewnianej desce (wizualizacja)" width="1600" height="1200" fetchpriority="high"></div>
-      <div class="cover cover--float cover--sage" aria-hidden="true">
-        <span class="cover-brand">KetoBoomers</span>
-        <p class="cover-title">5 przepisów</p>
-        <p class="cover-sub">na chleb i bułki, które wychodzą</p>
-        <img class="cover-photo" src="assets/img/scene/buns-800.jpg" alt="" width="800" height="600">
-      </div>
-    </div>
   </div>
+  {{badge}}
 </section>
 
 <section class="trust" aria-label="Dlaczego nam zaufać">
@@ -71,17 +64,18 @@ jsonld: org
       <a class="btn btn--ghost" href="#darmowe-przepisy">Chcę darmowe przepisy</a>
     </div>
     <figure>
-      <div class="frame"><img src="assets/img/scene/buns-1600.jpg" srcset="assets/img/scene/buns-800.jpg 800w, assets/img/scene/buns-1600.jpg 1600w" sizes="(min-width: 860px) 46vw, 92vw" alt="Bułki z sezamem na drewnianej desce i przekrojona bułka z masłem (wizualizacja)" width="1600" height="1200" loading="lazy"></div>
+      <div class="frame"><img src="assets/img/scene/buns-1600.jpg" srcset="assets/img/scene/buns-800.jpg 800w, assets/img/scene/buns-1600.jpg 1600w" sizes="(min-width: 860px) 46vw, 92vw" alt="Trzy bułki z sezamem na drewnianej desce i miseczka z masłem (wizualizacja)" width="1600" height="1200" loading="lazy"></div>
     </figure>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head section-head--center">
       <span class="eyebrow">Co pieczemy</span>
       <h2>Wypieki, za którymi naprawdę się tęskni</h2>
-      <p class="lead">Zaczynamy od pieczywa – bo brakuje go najbardziej. Potem przyjdą ciasta, święta i kompendium wiedzy o mąkach.</p>
+      <p class="lead" style="margin-inline:auto">Zaczynamy od pieczywa – bo brakuje go najbardziej. Potem przyjdą ciasta, święta i kompendium wiedzy o mąkach.</p>
+      <div class="ornament" aria-hidden="true" style="margin-top:1.6rem"></div>
     </div>
     <div class="grid grid--4">
       <article class="card">
@@ -133,6 +127,17 @@ jsonld: org
   </div>
 </section>
 
+<section class="section section--dark library" id="ebooki">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Biblioteka KetoBoomers</span>
+      <h2>Nasze ebooki <em>w jednym kręgu</em></h2>
+      <p class="lead" style="margin-inline:auto">Przekręć okładki, przeciągnij je myszką lub palcem albo kliknij wybrany ebook. Zaczynamy od pieczywa, kolejne przyjdą w kolejności, w jakiej ich najbardziej potrzebujecie.</p>
+    </div>
+    {{carousel}}
+  </div>
+</section>
+
 <section class="section section--paper">
   <div class="container split split--reverse">
     <div>
@@ -147,33 +152,8 @@ jsonld: org
       <p class="small muted">Nasze przepisy nie zastępują porady lekarza ani dietetyka.</p>
     </div>
     <figure>
-      <div class="frame"><img src="assets/img/scene/kitchen-1600.jpg" srcset="assets/img/scene/kitchen-800.jpg 800w, assets/img/scene/kitchen-1600.jpg 1600w" sizes="(min-width: 860px) 46vw, 92vw" alt="Kuchenny stół z bochenkiem chleba, wałkiem i kubkiem herbaty (wizualizacja)" width="1600" height="1200" loading="lazy"></div>
+      <div class="arch" style="max-width:440px;margin-inline:auto"><img src="assets/img/scene/kitchen-1600.jpg" srcset="assets/img/scene/kitchen-800.jpg 800w, assets/img/scene/kitchen-1600.jpg 1600w" sizes="(min-width: 860px) 440px, 80vw" alt="Zbliżenie na kromki świeżo upieczonego chleba z miękiszem pełnym porów, obok masło (wizualizacja)" width="1600" height="1200" loading="lazy"></div>
     </figure>
-  </div>
-</section>
-
-<section class="section section--dark">
-  <div class="container split">
-    <div class="cover-stage">
-      <div class="cover cover--lg">
-        <span class="cover-brand">KetoBoomers · Ebook</span>
-        <p class="cover-title">Keto pieczywo</p>
-        <p class="cover-sub">12 przepisów na chleb i bułki, które wychodzą za pierwszym razem</p>
-        <img class="cover-photo" src="assets/img/scene/loaf-800.jpg" alt="" width="800" height="600">
-      </div>
-    </div>
-    <div>
-      <span class="eyebrow">Pierwszy ebook</span>
-      <h2>Keto pieczywo: <em>12 przepisów</em> na chleb i bułki</h2>
-      <p class="lead">Mały ebook o jednym konkretnym problemie: jak upiec keto chleb, który nie jest gumowy.</p>
-      <ul class="checklist">
-        <li>12 przetestowanych przepisów na chleb i bułki</li>
-        <li>Makra, czas i poziom trudności przy każdym przepisie</li>
-        <li>Wskazówki, co poprawić, gdy coś nie wyjdzie</li>
-        <li>7 dni gwarancji zwrotu pieniędzy</li>
-      </ul>
-      <a class="btn btn--light btn--lg" href="pieczywo-keto.html">Poznaj ebooka</a>
-    </div>
   </div>
 </section>
 

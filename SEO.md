@@ -85,7 +85,7 @@ Dla każdego wpisu: jedna fraza główna, unikalny tytuł do ~60 znaków, opis d
 - Dane strukturalne: `Organization` i `WebSite` (strona główna), `Article` i `BreadcrumbList` (wpisy), `FAQPage` (FAQ i wpisy z pytaniami), szablon `Recipe` (szablon wpisu z przepisem).
 - `sitemap.xml` i `robots.txt` generowane przy budowaniu strony (wpisy trafiają do mapy automatycznie, z datą aktualizacji).
 - Nawigacja okruszkowa we wpisach, spis treści (kotwice), linkowanie wewnętrzne ze strony głównej, sklepu, FAQ i między wpisami.
-- Szybkość: statyczny HTML, brak zewnętrznych czcionek i skryptów, obrazy w dwóch rozmiarach (`srcset`), `loading="lazy"`.
+- Szybkość: statyczny HTML, czcionki hostowane lokalnie (`woff2`, podzbiory latin i latin-ext, `preload` czterech plików, `font-display: swap`), brak zewnętrznych skryptów, obrazy w dwóch rozmiarach (`srcset`), `loading="lazy"`; zdjęcie otwierające stronę główną ładuje się od razu (`fetchpriority="high"`), by nie psuć LCP.
 - Dostępność: język `pl`, `alt` przy obrazach, kontrasty, obsługa klawiatury.
 
 ## 6. Do zrobienia poza kodem

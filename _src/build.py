@@ -42,6 +42,83 @@ ICONS = {
 }
 
 
+PRODUCTS = [
+    dict(key="pieczywo", title="Keto pieczywo", sub="12 przepisów na chleb i bułki", theme="wheat", img="loaf",
+         tag=("Ebook", "PDF"), price="29 zł", href="pieczywo-keto.html", cta="Poznaj ebooka",
+         blurb="Chleb i bułki, które wychodzą za pierwszym razem. Makra, czas i wskazówki krok po kroku."),
+    dict(key="ciasta", title="Ciasta i serniki", sub="wypieki, które łączą rodzinę", theme="rose", img="cake",
+         tag=("Ebook", "Wkrótce"), price="planowo 39 zł", href="sklep.html#powiadom", cta="Powiadom mnie o premierze",
+         blurb="Od codziennych ciast po sernik na święta, bez cukru i bez kompromisów w smaku."),
+    dict(key="swieta", title="Święta keto", sub="wypieki bez cukru na świąteczny stół", theme="pine", img="holiday",
+         tag=("Ebook", "Wkrótce"), price="planowo 39 zł", href="sklep.html#powiadom", cta="Powiadom mnie o premierze",
+         blurb="Piernik, sernik i makowiec na święta: przy stole nikogo nie zabraknie, także osób pilnujących węglowodanów."),
+    dict(key="maki", title="Przewodnik po mąkach", sub="migdałowa, kokosowa, łubinowa", theme="sage", img="flours",
+         tag=("Poradnik", "Za darmo"), price="Czytaj za darmo na blogu", href="blog/maki-keto-migdalowa-kokosowa-lubinowa-babka-plesznik.html", cta="Przeczytaj na blogu",
+         blurb="Proporcje, zamienniki i alergeny. Wiedza, której najbardziej brakuje początkującym w pieczeniu keto."),
+    dict(key="pakiet", title="Pakiet ebooków", sub="wszystkie w jednym, taniej", theme="espresso", img=None,
+         tag=("Pakiet", "Wkrótce"), price="planowo 119 zł", href="sklep.html#powiadom", cta="Powiadom mnie o premierze",
+         blurb="Wszystkie ebooki w jednym pakiecie. Przy premierze pokażemy dokładnie, ile oszczędzasz."),
+    dict(key="ksiega", title="Wielka księga wypieków", sub="Rodzinna piekarnia keto", theme="wine", img="kitchen",
+         tag=("Księga", "Wkrótce"), price="planowo 79 zł", href="sklep.html#powiadom", cta="Powiadom mnie o premierze",
+         blurb="Nasz flagowy zbiór: 50–70 przepisów na chleb, ciasta i święta. W przygotowaniu."),
+]
+
+
+def carousel_html(root):
+    n = len(PRODUCTS)
+    books, infos, dots = [], [], []
+    for i, p in enumerate(PRODUCTS):
+        t = htmllib.escape(p["title"])
+        if p["img"]:
+            visual = f'<span class="bk-photo"><img src="{root}assets/img/scene/{p["img"]}-800.jpg" alt="" width="800" height="600" loading="lazy"></span>'
+        else:
+            visual = '<span class="bk-stack" aria-hidden="true"><i></i><i></i><i></i></span>'
+        books.append(f"""<li class="book{' is-active' if i == 0 else ''}" style="--i:{i}" data-index="{i}">
+            <div class="book-face book-face--front bk bk--{p['theme']}">
+              <a class="book-link" href="{root}{p['href']}" aria-label="{t}: {htmllib.escape(p['sub'])}">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">{t}</span><span class="bk-sub">{htmllib.escape(p['sub'])}</span></span>
+                {visual}
+                <span class="bk-tag"><span>{p['tag'][0]}</span><span>{p['tag'][1]}</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--{p['theme']} bk-back"><img src="{root}assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li>""")
+        if p["key"] == "pieczywo":
+            badge = '<span class="badge" data-soon-for="pieczywo">Premiera wkrótce</span><span class="badge" data-live-for="pieczywo" hidden>Dostępny</span>'
+        else:
+            badge = f'<span class="badge">{p["tag"][1]}</span>'
+        infos.append(f"""<div class="info-item" data-index="{i}"{'' if i == 0 else ' hidden'}>
+            {badge}
+            <h3>{t}</h3>
+            <p>{htmllib.escape(p['blurb'])}</p>
+            <p class="info-price">{htmllib.escape(p['price'])}</p>
+            <a class="btn btn--light btn--arrow" href="{root}{p['href']}">{p['cta']}</a>
+          </div>""")
+        cur = ' aria-current="true"' if i == 0 else ""
+        dots.append(f'<button type="button" data-go="{i}" aria-label="Pokaż: {t}"{cur}></button>')
+    return f"""<div class="carousel" data-carousel style="--n:{n}">
+      <div class="carousel-stage" aria-roledescription="karuzela" aria-label="Biblioteka ebooków KetoBoomers">
+        <div class="carousel-floor" aria-hidden="true"></div>
+        <ol class="carousel-ring">
+          {"".join(books)}
+        </ol>
+      </div>
+      <button type="button" class="carousel-btn carousel-btn--prev" aria-label="Poprzedni ebook">‹</button>
+      <button type="button" class="carousel-btn carousel-btn--next" aria-label="Następny ebook">›</button>
+      <div class="carousel-info" aria-live="polite">
+        {"".join(infos)}
+      </div>
+      <div class="carousel-dots">{"".join(dots)}</div>
+    </div>"""
+
+
+def badge_html(root):
+    return f"""<div class="badge-round" aria-hidden="true">
+      <svg class="ring" viewBox="0 0 100 100"><defs><path id="badge-path" d="M50,50 m-39,0 a39,39 0 1,1 78,0 a39,39 0 1,1 -78,0"/></defs><text><textPath href="#badge-path" textLength="241" lengthAdjust="spacing">Wypieki keto bez cukru · Rodzinna piekarnia · </textPath></text></svg>
+      <img src="{root}assets/img/logo-mark.svg" alt="" width="64" height="64">
+    </div>"""
+
+
 def pl_date(iso):
     y, m, d = (int(x) for x in iso.split("-"))
     return f"{d} {MONTHS[m - 1]} {y}"
@@ -112,13 +189,16 @@ def load_posts():
     return posts
 
 
-def post_cards(posts, root):
+def post_cards(posts, root, total=None, start=0):
     cards = []
-    for p in posts:
+    total = total or len(posts)
+    for idx, p in enumerate(posts):
         title = htmllib.escape(p["h1"])
+        no = total - (start + idx)
         cards.append(f"""<article class="card post-card" data-cat="{htmllib.escape(p['category'])}">
           <div class="card-media card-media--photo"><img src="{root}{p['image']}" alt="" width="800" height="600" loading="lazy"></div>
           <div class="card-body">
+            <span class="card-no">N° {no:02d}</span>
             <span class="badge">{htmllib.escape(p['category'])}</span>
             <h3><a class="card-title-link" href="{root}{p['file']}">{title}</a></h3>
             <p>{htmllib.escape(p['excerpt'])}</p>
@@ -128,10 +208,27 @@ def post_cards(posts, root):
     return "\n".join(cards)
 
 
+def featured_card(p, root, total):
+    title = htmllib.escape(p["h1"])
+    return f"""<article class="featured-post post-card" data-cat="{htmllib.escape(p['category'])}">
+      <div class="fp-media"><img src="{root}{p['image'].replace('-800.jpg', '-1600.jpg')}" alt="" width="1600" height="1200" loading="eager"></div>
+      <div class="fp-body">
+        <span class="eyebrow">Najnowszy wpis · {htmllib.escape(p['category'])}</span>
+        <h2><a href="{root}{p['file']}">{title}</a></h2>
+        <p>{htmllib.escape(p['excerpt'])}</p>
+        <p class="post-meta-line"><span><time datetime="{p['date']}">{pl_date(p['date'])}</time></span> · <span>{p['readtime']} min czytania</span></p>
+        <span class="btn btn--primary btn--arrow" style="align-self:flex-start">Czytaj wpis</span>
+      </div>
+    </article>"""
+
+
 def expand_posts_tokens(body, posts, root):
-    """{{posts}} – wszystkie wpisy, {{posts:N}} – N najnowszych, {{categories}} – chipsy kategorii."""
-    body = re.sub(r"\{\{posts:(\d+)\}\}", lambda m: post_cards(posts[: int(m.group(1))], root), body)
-    body = body.replace("{{posts}}", post_cards(posts, root))
+    """{{featured}} – najnowszy wpis, {{posts:rest}} – pozostałe, {{posts}} – wszystkie, {{posts:N}} – N najnowszych."""
+    total = len(posts)
+    body = body.replace("{{featured}}", featured_card(posts[0], root, total) if posts else "")
+    body = body.replace("{{posts:rest}}", post_cards(posts[1:], root, total, 1))
+    body = re.sub(r"\{\{posts:(\d+)\}\}", lambda m: post_cards(posts[: int(m.group(1))], root, total, 0), body)
+    body = body.replace("{{posts}}", post_cards(posts, root, total, 0))
     cats = []
     for p in posts:
         if p["category"] not in cats:
@@ -141,7 +238,9 @@ def expand_posts_tokens(body, posts, root):
         f'<li><button type="button" class="chip" data-filter="{htmllib.escape(c)}" aria-pressed="false">{htmllib.escape(c)}</button></li>'
         for c in cats
     ]
-    return body.replace("{{categories}}", "\n".join(chips))
+    body = body.replace("{{categories}}", "\n".join(chips))
+    body = body.replace("{{carousel}}", carousel_html(root)).replace("{{badge}}", badge_html(root))
+    return body
 
 
 def toc_html(body):
@@ -158,13 +257,13 @@ def post_main(post, posts):
     crumb_title = htmllib.escape(post.get("crumb", post["h1"]))
     updated = ""
     if post["updated"] != post["date"]:
-        updated = f' · Zaktualizowano <time datetime="{post["updated"]}">{pl_date(post["updated"])}</time>'
+        updated = f' <span>Zaktualizowano <time datetime="{post["updated"]}">{pl_date(post["updated"])}</time></span>'
     hero = ""
     if post.get("hero", "yes") != "no":
         small = post["image"]
         large = small.replace("-800.jpg", "-1600.jpg")
-        srcset = f' srcset="{root}{small} 800w, {root}{large} 1600w" sizes="(min-width: 800px) 760px, 92vw"' if large != small else ""
-        hero = f'<figure class="post-hero"><div class="frame"><img src="{root}{large}"{srcset} alt="{htmllib.escape(post.get("image_alt", ""))}" width="1600" height="1200"></div></figure>'
+        srcset = f' srcset="{root}{small} 800w, {root}{large} 1600w" sizes="(min-width: 1100px) 1080px, 94vw"' if large != small else ""
+        hero = f'<figure class="post-hero"><div class="frame"><img src="{root}{large}"{srcset} alt="{htmllib.escape(post.get("image_alt", ""))}" width="1600" height="1200" fetchpriority="high"></div></figure>'
     others = [p for p in posts if p["slug"] != post["slug"]]
     same = [p for p in others if p["category"] == post["category"]]
     ordered = same + [p for p in others if p not in same]
@@ -172,14 +271,17 @@ def post_main(post, posts):
     if ordered:
         related = f"""<section class="section section--alt">
   <div class="container">
-    <div class="section-head"><h2>Czytaj dalej</h2></div>
+    <div class="section-head section-head--center"><span class="eyebrow">Dalej w księdze</span><h2>Czytaj dalej</h2></div>
     <div class="grid grid--3">
-{post_cards(ordered[:3], root)}
+{post_cards(ordered[:3], root, len(posts), 0)}
     </div>
   </div>
 </section>"""
+    toc = toc_html(post["body"])
+    layout_cls = "post-layout" if toc else "post-layout post-layout--solo"
+    aside = f'<aside class="post-aside">{toc}</aside>' if toc else ""
     return f"""<article class="post">
-  <header class="page-hero">
+  <header class="post-header">
     <div class="container--narrow">
       <nav class="breadcrumbs" aria-label="Nawigacja okruszkowa"><ol>
         <li><a href="{root}index.html">Strona główna</a></li>
@@ -189,18 +291,21 @@ def post_main(post, posts):
       <span class="eyebrow">{htmllib.escape(post["category"])}</span>
       <h1>{h1}</h1>
       <p class="lead">{htmllib.escape(post["excerpt"])}</p>
-      <p class="post-byline">Zespół KetoBoomers · <time datetime="{post["date"]}">{pl_date(post["date"])}</time>{updated} · {post["readtime"]} min czytania</p>
+      <p class="post-byline"><span>Zespół KetoBoomers</span><span><time datetime="{post["date"]}">{pl_date(post["date"])}</time></span>{updated}<span>{post["readtime"]} min czytania</span></p>
     </div>
-  </header>
-  <div class="container--narrow">
     {hero}
-    {toc_html(post["body"])}
-    <div class="prose post-body">
+  </header>
+  <div class="{layout_cls}">
+    {aside}
+    <div class="post-main">
+      <div class="prose post-body">
 {post["body"].strip()}
+      </div>
+      <div class="post-end"><div class="ornament" aria-hidden="true"></div><p>Do zobaczenia w naszej piekarni.</p></div>
+      <aside class="callout callout--sage post-disclaimer">
+        <p><strong>Uwaga:</strong> artykuł ma charakter informacyjny i nie zastępuje porady lekarza ani dietetyka. Jeśli chorujesz przewlekle (w tym na cukrzycę), przyjmujesz leki albo jesteś w ciąży, zmianę diety skonsultuj ze specjalistą.</p>
+      </aside>
     </div>
-    <aside class="callout callout--sage post-disclaimer">
-      <p><strong>Uwaga:</strong> artykuł ma charakter informacyjny i nie zastępuje porady lekarza ani dietetyka. Jeśli chorujesz przewlekle (w tym na cukrzycę), przyjmujesz leki albo jesteś w ciąży, zmianę diety skonsultuj ze specjalistą.</p>
-    </aside>
   </div>
 </article>
 {related}
@@ -208,7 +313,7 @@ def post_main(post, posts):
   <div class="container--narrow center">
     <span class="eyebrow">Darmowy zestaw</span>
     <h2>5 przepisów na keto chleb i bułki, które wychodzą</h2>
-    <p class="lead" style="margin-inline:auto">Zapisz się na newsletter i odbierz zestaw na start. Nowe artykuły i przepisy – prosto na skrzynkę.</p>
+    <p class="lead" style="margin-inline:auto">Zapisz się na newsletter i odbierz zestaw na start. Nowe artykuły i przepisy prosto na skrzynkę.</p>
     <div class="signup-card" style="text-align:left;max-width:34rem;margin:2rem auto 0">
       {{{{signup:post|Wyślij mi darmowe przepisy}}}}
     </div>
@@ -388,7 +493,11 @@ def render_document(meta, main_html, root, out_rel, extra_ld=None, og_type="webs
 <meta property="og:url" content="{canonical}">
 <meta property="og:image" content="{og_image}">
 <meta name="twitter:card" content="summary_large_image">
-{extra_head}<link rel="stylesheet" href="{root}assets/css/style.css">
+{extra_head}<link rel="preload" as="font" type="font/woff2" crossorigin href="{root}assets/fonts/fraunces-latin-opsz-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="{root}assets/fonts/fraunces-latin-ext-opsz-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="{root}assets/fonts/dm-sans-latin-wght-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="{root}assets/fonts/dm-sans-latin-ext-wght-normal.woff2">
+<link rel="stylesheet" href="{root}assets/css/style.css">
 <script>document.documentElement.classList.add("js")</script>
 {ld_html}</head>
 <body data-root="{root}">

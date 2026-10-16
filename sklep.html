@@ -16,6 +16,10 @@
 <meta property="og:url" content="https://ketoboomers.pl/sklep.html">
 <meta property="og:image" content="https://ketoboomers.pl/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/fraunces-latin-opsz-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/fraunces-latin-ext-opsz-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dm-sans-latin-wght-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dm-sans-latin-ext-wght-normal.woff2">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -45,7 +49,121 @@
   </div>
 </section>
 
-<section class="section" id="pieczywo" style="padding-top:1rem">
+<section class="section section--dark library" id="biblioteka">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Biblioteka KetoBoomers</span>
+      <h2>Wybierz swój <em>pierwszy ebook</em></h2>
+      <p class="lead" style="margin-inline:auto">Przekręć okładki, przeciągnij je lub kliknij wybrany ebook. Poniżej znajdziesz też pełny katalog podzielony na kategorie.</p>
+    </div>
+    <div class="carousel" data-carousel style="--n:6">
+      <div class="carousel-stage" aria-roledescription="karuzela" aria-label="Biblioteka ebooków KetoBoomers">
+        <div class="carousel-floor" aria-hidden="true"></div>
+        <ol class="carousel-ring">
+          <li class="book is-active" style="--i:0" data-index="0">
+            <div class="book-face book-face--front bk bk--wheat">
+              <a class="book-link" href="pieczywo-keto.html" aria-label="Keto pieczywo: 12 przepisów na chleb i bułki">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Keto pieczywo</span><span class="bk-sub">12 przepisów na chleb i&nbsp;bułki</span></span>
+                <span class="bk-photo"><img src="assets/img/scene/loaf-800.jpg" alt="" width="800" height="600" loading="lazy"></span>
+                <span class="bk-tag"><span>Ebook</span><span>PDF</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--wheat bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li><li class="book" style="--i:1" data-index="1">
+            <div class="book-face book-face--front bk bk--rose">
+              <a class="book-link" href="sklep.html#powiadom" aria-label="Ciasta i serniki: wypieki, które łączą rodzinę">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Ciasta i&nbsp;serniki</span><span class="bk-sub">wypieki, które łączą rodzinę</span></span>
+                <span class="bk-photo"><img src="assets/img/scene/cake-800.jpg" alt="" width="800" height="600" loading="lazy"></span>
+                <span class="bk-tag"><span>Ebook</span><span>Wkrótce</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--rose bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li><li class="book" style="--i:2" data-index="2">
+            <div class="book-face book-face--front bk bk--pine">
+              <a class="book-link" href="sklep.html#powiadom" aria-label="Święta keto: wypieki bez cukru na świąteczny stół">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Święta keto</span><span class="bk-sub">wypieki bez cukru na świąteczny stół</span></span>
+                <span class="bk-photo"><img src="assets/img/scene/holiday-800.jpg" alt="" width="800" height="600" loading="lazy"></span>
+                <span class="bk-tag"><span>Ebook</span><span>Wkrótce</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--pine bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li><li class="book" style="--i:3" data-index="3">
+            <div class="book-face book-face--front bk bk--sage">
+              <a class="book-link" href="blog/maki-keto-migdalowa-kokosowa-lubinowa-babka-plesznik.html" aria-label="Przewodnik po mąkach: migdałowa, kokosowa, łubinowa">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Przewodnik po mąkach</span><span class="bk-sub">migdałowa, kokosowa, łubinowa</span></span>
+                <span class="bk-photo"><img src="assets/img/scene/flours-800.jpg" alt="" width="800" height="600" loading="lazy"></span>
+                <span class="bk-tag"><span>Poradnik</span><span>Za darmo</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--sage bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li><li class="book" style="--i:4" data-index="4">
+            <div class="book-face book-face--front bk bk--espresso">
+              <a class="book-link" href="sklep.html#powiadom" aria-label="Pakiet ebooków: wszystkie w jednym, taniej">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Pakiet ebooków</span><span class="bk-sub">wszystkie w&nbsp;jednym, taniej</span></span>
+                <span class="bk-stack" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="bk-tag"><span>Pakiet</span><span>Wkrótce</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--espresso bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li><li class="book" style="--i:5" data-index="5">
+            <div class="book-face book-face--front bk bk--wine">
+              <a class="book-link" href="sklep.html#powiadom" aria-label="Wielka księga wypieków: Rodzinna piekarnia keto">
+                <span class="bk-inner"><span class="bk-brand">KetoBoomers</span><span class="bk-title">Wielka księga wypieków</span><span class="bk-sub">Rodzinna piekarnia keto</span></span>
+                <span class="bk-photo"><img src="assets/img/scene/kitchen-800.jpg" alt="" width="800" height="600" loading="lazy"></span>
+                <span class="bk-tag"><span>Księga</span><span>Wkrótce</span></span>
+              </a>
+            </div>
+            <div class="book-face book-face--back bk bk--wine bk-back"><img src="assets/img/logo-mark.svg" alt="" width="64" height="64"></div>
+          </li>
+        </ol>
+      </div>
+      <button type="button" class="carousel-btn carousel-btn--prev" aria-label="Poprzedni ebook">‹</button>
+      <button type="button" class="carousel-btn carousel-btn--next" aria-label="Następny ebook">›</button>
+      <div class="carousel-info" aria-live="polite">
+        <div class="info-item" data-index="0">
+            <span class="badge" data-soon-for="pieczywo">Premiera wkrótce</span><span class="badge" data-live-for="pieczywo" hidden>Dostępny</span>
+            <h3>Keto pieczywo</h3>
+            <p>Chleb i&nbsp;bułki, które wychodzą za pierwszym razem. Makra, czas i&nbsp;wskazówki krok po kroku.</p>
+            <p class="info-price">29 zł</p>
+            <a class="btn btn--light btn--arrow" href="pieczywo-keto.html">Poznaj ebooka</a>
+          </div><div class="info-item" data-index="1" hidden>
+            <span class="badge">Wkrótce</span>
+            <h3>Ciasta i&nbsp;serniki</h3>
+            <p>Od codziennych ciast po sernik na święta, bez cukru i&nbsp;bez kompromisów w&nbsp;smaku.</p>
+            <p class="info-price">planowo 39 zł</p>
+            <a class="btn btn--light btn--arrow" href="sklep.html#powiadom">Powiadom mnie o&nbsp;premierze</a>
+          </div><div class="info-item" data-index="2" hidden>
+            <span class="badge">Wkrótce</span>
+            <h3>Święta keto</h3>
+            <p>Piernik, sernik i&nbsp;makowiec na święta: przy stole nikogo nie zabraknie, także osób pilnujących węglowodanów.</p>
+            <p class="info-price">planowo 39 zł</p>
+            <a class="btn btn--light btn--arrow" href="sklep.html#powiadom">Powiadom mnie o&nbsp;premierze</a>
+          </div><div class="info-item" data-index="3" hidden>
+            <span class="badge">Za darmo</span>
+            <h3>Przewodnik po mąkach</h3>
+            <p>Proporcje, zamienniki i&nbsp;alergeny. Wiedza, której najbardziej brakuje początkującym w&nbsp;pieczeniu keto.</p>
+            <p class="info-price">Czytaj za darmo na blogu</p>
+            <a class="btn btn--light btn--arrow" href="blog/maki-keto-migdalowa-kokosowa-lubinowa-babka-plesznik.html">Przeczytaj na blogu</a>
+          </div><div class="info-item" data-index="4" hidden>
+            <span class="badge">Wkrótce</span>
+            <h3>Pakiet ebooków</h3>
+            <p>Wszystkie ebooki w&nbsp;jednym pakiecie. Przy premierze pokażemy dokładnie, ile oszczędzasz.</p>
+            <p class="info-price">planowo 119 zł</p>
+            <a class="btn btn--light btn--arrow" href="sklep.html#powiadom">Powiadom mnie o&nbsp;premierze</a>
+          </div><div class="info-item" data-index="5" hidden>
+            <span class="badge">Wkrótce</span>
+            <h3>Wielka księga wypieków</h3>
+            <p>Nasz flagowy zbiór: 50–70 przepisów na chleb, ciasta i&nbsp;święta. W&nbsp;przygotowaniu.</p>
+            <p class="info-price">planowo 79 zł</p>
+            <a class="btn btn--light btn--arrow" href="sklep.html#powiadom">Powiadom mnie o&nbsp;premierze</a>
+          </div>
+      </div>
+      <div class="carousel-dots"><button type="button" data-go="0" aria-label="Pokaż: Keto pieczywo" aria-current="true"></button><button type="button" data-go="1" aria-label="Pokaż: Ciasta i serniki"></button><button type="button" data-go="2" aria-label="Pokaż: Święta keto"></button><button type="button" data-go="3" aria-label="Pokaż: Przewodnik po mąkach"></button><button type="button" data-go="4" aria-label="Pokaż: Pakiet ebooków"></button><button type="button" data-go="5" aria-label="Pokaż: Wielka księga wypieków"></button></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pieczywo">
   <div class="container">
     <h2>Keto pieczywo</h2>
     <div class="grid grid--3">
